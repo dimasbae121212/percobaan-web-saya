@@ -3,43 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percobaan Membuat Web Hari 1</title>
+    <title>Percobaan Web Berwarna</title>
+    
+    <style>
+        /* Mengatur gaya dasar untuk seluruh BODY laman */
+        body {
+            font-family: Arial, sans-serif; /* Mengganti jenis font */
+            background-color: #f4f4f9; /* Warna latar belakang abu-abu muda */
+            color: #333; /* Warna teks dasar */
+            margin: 0; /* Menghilangkan margin default browser */
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Mengatur gaya untuk wadah konten utama */
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Membuat container berada di tengah */
+            background-color: #fff; /* Latar belakang putih untuk konten */
+            padding: 30px;
+            border-radius: 8px; /* Sudut membulat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+        }
+
+        /* Mengatur gaya untuk Judul Utama (h1) */
+        h1 {
+            color: #0056b3; /* Warna biru untuk judul */
+            text-align: center; /* Judul di tengah */
+            border-bottom: 3px solid #0056b3; /* Garis bawah biru */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Mengatur gaya untuk Sub-judul (h2) */
+        h2 {
+            color: #007bff; /* Warna biru yang sedikit berbeda */
+            margin-top: 25px;
+        }
+
+        /* Mengatur gaya untuk daftar (ul) */
+        ul {
+            list-style-type: square; /* Mengganti bullet point menjadi kotak */
+            padding-left: 20px;
+        }
+
+        /* Mengatur gaya untuk footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ccc;
+            font-size: 0.9em; /* Ukuran font lebih kecil */
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Percobaan Membuat Web Hari 1</h1>
+    <div class="container">
+        <h1>Percobaan Membuat Web</h1>
+        
+        <section>
+            <h2>Apa Tujuan Percobaan Ini?</h2>
+            <p>
+                Ini adalah langkah awal dalam mempelajari pengembangan web, kini dengan penambahan **CSS** untuk membuatnya lebih menarik secara visual. Tujuannya adalah untuk memahami bagaimana **HTML (Struktur)** dan **CSS (Gaya)** bekerja sama.
+            </p>
+            <p>
+                CSS memungkinkan kita mengontrol warna, *font*, tata letak, dan banyak aspek desain lainnya. Ini membuat laman web tidak hanya fungsional tetapi juga enak dilihat.
+            </p>
+        </section>
+        
+        <hr>
+        
+        <article>
+            <h2>Contoh Elemen CSS yang Digunakan</h2>
+            <ul>
+                <li>Mengganti latar belakang laman menjadi **biru muda** (`background-color`).</li>
+                <li>Menambahkan **bayangan** (`box-shadow`) pada konten utama.</li>
+                <li>Mengganti jenis **font** menjadi Arial (`font-family`).</li>
+                <li>Memberi **warna biru** pada judul (`color`).</li>
+            </ul>
+        </article>
     
-    <hr>
+        <hr>
     
-    <section>
-        <h2>Apa Tujuan Percobaan Ini?</h2>
-        <p>
-            Ini adalah langkah awal dalam mempelajari pengembangan web. Tujuannya adalah untuk memahami struktur dasar dari sebuah dokumen **HTML** (HyperText Markup Language).
-        </p>
-        <p>
-            Setiap laman web dibangun dengan elemen-elemen HTML seperti judul (<code>&lt;h1&gt;</code>), paragraf (<code>&lt;p&gt;</code>), dan elemen struktural lainnya.
-        </p>
-    </section>
-    
-    <hr>
-    
-    <article>
-        <h2>Struktur Dasar</h2>
-        <ul>
-            <li><code>&lt;!DOCTYPE html&gt;</code>: Mendefinisikan dokumen sebagai HTML5.</li>
-            <li><code>&lt;html&gt;</code>: Elemen wadah utama untuk seluruh laman.</li>
-            <li><code>&lt;head&gt;</code>: Berisi meta-informasi (judul laman, set karakter, dll.).</li>
-            <li><code>&lt;body&gt;</code>: Berisi semua konten yang terlihat oleh pengguna.</li>
-        </ul>
-    </article>
-
-    <hr>
-
-    <footer>
-        <p>Hak Cipta &copy; 2025 | Latihan Coding</p>
-    </footer>
+        <footer>
+            <p>Hak Cipta &copy; 2025 | Latihan HTML & CSS</p>
+        </footer>
+    </div>
 
 </body>
-
 </html>
-
