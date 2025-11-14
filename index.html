@@ -9,7 +9,7 @@
         /* 1. FONT UTENDO (Teks Normal) */
         @font-face {
             font-family: 'Utendo';
-            /* Jalur dan format baru: fonts/Utendo-Regular.ttf */
+            /* Jalur dan format Utendo */
             src: url('fonts/Utendo-Regular.ttf') format('truetype'); 
             font-weight: 400;
             font-style: normal;
@@ -28,7 +28,6 @@
            GLOBAL & BASE STYLES
            ========================================================================= */
         :root {
-            /* Skema Warna */
             --color-primary: #99775c; 
             --color-background: #eae7dd;
             --color-text-dark: #000000;
@@ -36,11 +35,8 @@
             --color-text-muted: rgba(0, 0, 0, 0.55);
 
             /* Typography */
-            --font-display: 'Inter', sans-serif; /* Digunakan untuk Judul/Teks Tebal */
-            --font-body: 'Utendo', sans-serif; /* Digunakan untuk Teks Normal */
-            
-            /* Variabel Spasi Default (Desktop) */
-            --spacing-xl: 48px;
+            --font-display: 'Inter', sans-serif; 
+            --font-body: 'Utendo', sans-serif; 
             --spacing-lg: 32px;
             --spacing-md: 24px;
             --spacing-sm: 16px;
@@ -57,12 +53,14 @@
             color: var(--color-text-dark);
             background-color: var(--color-background);
             line-height: 1.6;
+            /* Optimasi Utama: memastikan tidak ada scrolling horizontal */
+            overflow-x: hidden; 
         }
 
         /* PERUBAHAN UTAMA: MENGATUR FONT TEBAL KE INTER */
         strong, b, 
         .logo, .hero-title, .section-title, .card-title, .card-link {
-            font-family: var(--font-display);
+            font-family: var(--font-display); 
         }
         
         a {
@@ -74,9 +72,15 @@
             width: 90%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 var(--spacing-sm); /* Padding dikurangi di mobile */
+            padding: 0 var(--spacing-md);
         }
-        
+
+        /* Optimasi Gambar: memastikan gambar responsif */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* =========================================================================
            HEADER / FOOTER STYLES
            ========================================================================= */
@@ -84,7 +88,7 @@
         .header, .footer {
             background-color: var(--color-primary);
             color: var(--color-text-light);
-            padding: var(--spacing-sm) 0; /* Padding header dikurangi */
+            padding: var(--spacing-md) 0;
         }
 
         .header .container, .footer .container {
@@ -92,36 +96,54 @@
             justify-content: space-between;
             align-items: center;
         }
+        
+        /* Optimasi Seluler: Logo/Header menumpuk jika terlalu sempit */
+        @media (max-width: 768px) {
+             .header .container, .footer .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+        /* ------------------------------------------------------------------------ */
 
         .logo {
-            font-size: 24px; /* Ukuran logo dikurangi di mobile */
+            font-size: 28px;
             font-weight: 800;
             letter-spacing: -1px;
             color: var(--color-text-light);
         }
-        
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
         /* =========================================================================
            HERO / ABOUT SECTION
            ========================================================================= */
 
         .hero-section {
-            padding: var(--spacing-xl) 0; /* Padding atas/bawah yang baik */
+            padding: 80px 0;
         }
 
         .eyebrow {
-            font-size: 14px; /* Ukuran font eyebrow dikurangi */
+            font-size: 16px;
+            color: var(--color-text-muted);
             margin-bottom: var(--spacing-sm);
         }
 
         .hero-title {
-            font-size: 36px; /* Ukuran judul utama dikurangi di mobile */
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
             font-weight: 800;
         }
 
         .hero-description {
-            font-size: 16px; /* Ukuran deskripsi dikurangi */
+            font-size: 18px;
+            color: var(--color-text-dark);
+            text-align: justify;
+            max-width: 900px;
         }
 
         /* =========================================================================
@@ -129,42 +151,69 @@
            ========================================================================= */
 
         .service-cards-section {
-            padding: var(--spacing-md) 0 var(--spacing-xl) 0;
+            padding: 40px 0 80px 0;
             text-align: center;
         }
 
         .section-title {
-            font-size: 28px; /* Ukuran judul section dikurangi di mobile */
+            font-size: 36px;
             margin-bottom: var(--spacing-lg);
             font-weight: 600;
         }
 
         .card-grid {
-            /* Di mobile, grid akan otomatis menjadi 1 kolom (lihat media query di bawah) */
             display: grid;
-            grid-template-columns: 1fr; 
-            gap: var(--spacing-md); /* Gap dikurangi */
+            /* Optimasi Grid: Grid akan berubah menjadi 1 kolom penuh di layar kecil */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
         }
 
         .card {
-            border-radius: 12px;
-            /* style lain tetap sama */
+            background-color: var(--color-text-light);
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .card-image {
-            height: 200px; /* Tinggi gambar kartu dikurangi */
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #ccc;
         }
 
         .card-content {
-            padding: var(--spacing-sm);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
         }
 
         .card-title {
-            font-size: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .card-description {
-            font-size: 14px;
+            font-size: 16px;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-link {
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
         }
 
         /* =========================================================================
@@ -172,58 +221,57 @@
            ========================================================================= */
 
         .feature-section {
-            padding: var(--spacing-xl) 0;
+            padding: 80px 0;
         }
 
         .feature-image {
-            max-height: 350px; /* Tinggi gambar showcase dikurangi */
-            border-radius: 12px;
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-top: var(--spacing-lg);
+            background-color: #ccc;
         }
 
         /* =========================================================================
-           MEDIA QUERIES (Responsiveness untuk layar DESKTOP/TABLET BESAR)
+           MEDIA QUERIES (Responsiveness) - Disesuaikan untuk Mobile First
            ========================================================================= */
-        @media (min-width: 769px) {
-            .container {
-                padding: 0 var(--spacing-md); /* Padding dikembalikan ke normal di layar besar */
+        @media (max-width: 992px) {
+            /* Penyesuaian Padding pada Tablet */
+            .hero-section {
+                padding: 60px 0;
             }
-
-            .header, .footer {
-                padding: var(--spacing-md) 0;
+        }
+           
+        @media (max-width: 768px) {
+            /* Penyesuaian Ukuran Font untuk Seluler */
+            .hero-title {
+                font-size: 34px; /* Judul lebih kecil di mobile */
             }
-
-            .logo {
+            .section-title {
                 font-size: 28px;
             }
-
-            .hero-title {
-                font-size: 48px;
+            .hero-description, .card-description {
+                font-size: 16px;
             }
-
-            .hero-description {
-                font-size: 18px;
+            .card-title {
+                font-size: 22px;
             }
-
-            .section-title {
-                font-size: 36px;
-            }
-
+            
+            /* Grid otomatis menumpuk karena minmax(300px, 1fr) dan layar di bawah 300px tidak umum */
             .card-grid {
-                /* Mengatur kembali ke 3 kolom di layar besar */
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: var(--spacing-lg);
-            }
-
-            .feature-image {
-                max-height: 600px;
+                gap: var(--spacing-md);
             }
         }
         
-        /* Media Query Khusus Tablet (Opsional) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .card-grid {
-                /* Opsi untuk 2 kolom di tablet */
-                grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 480px) {
+            /* Penyesuaian Ukuran Font Sangat Kecil */
+            .hero-title {
+                font-size: 28px;
+            }
+            .section-title {
+                font-size: 24px;
             }
         }
     </style>
