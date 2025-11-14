@@ -3,104 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percobaan Web Berwarna</title>
-    
+    <title>Ryuu Desain - Jasa Desain Bangunan</title>
     <style>
-        /* Mengatur gaya dasar untuk seluruh BODY laman */
+        /* 1. FONT IMPORT: Asumsikan Anda memiliki file font Utendo */
+        /* Anda harus mengganti 'path/to/utendo-regular.woff2' dengan lokasi file font yang benar. */
+        @font-face {
+            font-family: 'Utendo';
+            src: url('path/to/utendo-regular.woff2') format('woff2'),
+                 url('path/to/utendo-regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Utendo';
+            src: url('path/to/utendo-bold.woff2') format('woff2'),
+                 url('path/to/utendo-bold.woff') format('woff');
+            font-weight: 800; /* Untuk judul/bold */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* =========================================================================
+           GLOBAL & BASE STYLES
+           ========================================================================= */
+        :root {
+            /* Skema Warna Berdasarkan Palet Asli */
+            --color-primary: #99775c; /* Coklat Footer/Aksen */
+            --color-background: #eae7dd; /* Krem/Latte Background */
+            --color-text-dark: #000000;
+            --color-text-light: #ffffff;
+            --color-text-muted: rgba(0, 0, 0, 0.55);
+
+            /* Typography - SEMUA DIUBAH KE UTENDO */
+            --font-display: 'Utendo', sans-serif;
+            --font-body: 'Utendo', sans-serif;
+            --spacing-lg: 32px;
+            --spacing-md: 24px;
+            --spacing-sm: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Arial Narrow', Arial, sans-serif; /* Mengganti jenis font */
-            background-color: #2F4F4F; /* Warna latar belakang abu-abu muda */
-            color: #333; /* Warna teks dasar */
-            margin: 0; /* Menghilangkan margin default browser */
-            padding: 20px;
+            /* Menggunakan Utendo untuk seluruh body */
+            font-family: var(--font-body);
+            color: var(--color-text-dark);
+            background-color: var(--color-background);
             line-height: 1.6;
         }
 
-        /* Mengatur gaya untuk wadah konten utama */
+        a {
+            text-decoration: none;
+            color: var(--color-text-dark);
+        }
+
         .container {
-            max-width: 800px;
-            margin: 0 auto; /* Membuat container berada di tengah */
-            background-color: #fff; /* Latar belakang putih untuk konten */
-            padding: 30px;
-            border-radius: 8px; /* Sudut membulat */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
         }
 
-        /* Mengatur gaya untuk Judul Utama (h1) */
-        h1 {
-            color: #0056b3; /* Warna biru untuk judul */
-            text-align: center; /* Judul di tengah */
-            border-bottom: 3px solid #0056b3; /* Garis bawah biru */
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        /* =========================================================================
+           HEADER / FOOTER STYLES
+           ========================================================================= */
+
+        .header, .footer {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: var(--spacing-md) 0;
         }
 
-        /* Mengatur gaya untuk Sub-judul (h2) */
-        h2 {
-            color: #007bff; /* Warna biru yang sedikit berbeda */
-            margin-top: 25px;
+        .header .container, .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Mengatur gaya untuk daftar (ul) */
-        ul {
-            list-style-type: square; /* Mengganti bullet point menjadi kotak */
-            padding-left: 20px;
+        .logo {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--color-text-light);
         }
 
-        /* Mengatur gaya untuk footer */
-        footer {
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        /* =========================================================================
+           HERO / ABOUT SECTION
+           ========================================================================= */
+
+        .hero-section {
+            padding: 80px 0;
+        }
+
+        .eyebrow {
+            font-size: 16px;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-title {
+            font-size: 48px;
+            /* Menggunakan Utendo */
+            font-family: var(--font-display);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 800;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--color-text-dark);
+            text-align: justify;
+            max-width: 900px;
+        }
+
+        /* =========================================================================
+           SERVICE CARDS SECTION
+           ========================================================================= */
+
+        .service-cards-section {
+            padding: 40px 0 80px 0;
             text-align: center;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #ccc;
-            font-size: 0.9em; /* Ukuran font lebih kecil */
-            color: #666;
+        }
+
+        .section-title {
+            font-size: 36px;
+            /* Menggunakan Utendo */
+            font-family: var(--font-display);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 600;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .card {
+            background-color: var(--color-text-light);
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #ccc; /* Placeholder warna */
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-link {
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+        }
+
+        /* =========================================================================
+           FEATURE SECTION (Design Showcase)
+           ========================================================================= */
+
+        .feature-section {
+            padding: 80px 0;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-top: var(--spacing-lg);
+            background-color: #ccc; /* Placeholder warna */
+        }
+
+        /* =========================================================================
+           MEDIA QUERIES (Responsiveness)
+           ========================================================================= */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .hero-description {
+                font-size: 16px;
+            }
+            .card-grid {
+                grid-template-columns: 1fr; /* Satu kolom di perangkat kecil */
+            }
+            .header .container, .footer .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Percobaan Membuat Web Hari Pertama</h1>
-        
-        <section>
-            <h2>Apa Tujuan Saya Percobaan Ini?</h2>
-            <p>
-                Ini adalah langkah awal dalam mempelajari pengembangan web, kini dengan penambahan **CSS** untuk membuatnya lebih menarik secara visual. Tujuannya adalah untuk memahami bagaimana **HTML (Struktur)** dan **CSS (Gaya)** bekerja sama.
-            </p>
-            <p>
-                CSS memungkinkan kita mengontrol warna, *font*, tata letak, dan banyak aspek desain lainnya. Ini membuat laman web tidak hanya fungsional tetapi juga enak dilihat.
-            </p>
+    <header class="header">
+        <div class="container">
+            <div class="logo">Ryuu Project</div>
+            <div class="social-links">
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <p class="eyebrow">ABOUT US</p>
+                <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
+                <p class="hero-description">
+                    Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah komitmen kuat terhadap detail, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
+                </p>
+            </div>
         </section>
-        
-        <hr>
-        
-        <article>
-            <h2>Contoh Elemen CSS yang Digunakan</h2>
-            <ul>
-                <li>Mengganti latar belakang laman menjadi **biru muda** (`background-color`).</li>
-                <li>Menambahkan **bayangan** (`box-shadow`) pada konten utama.</li>
-                <li>Mengganti jenis **font** menjadi Arial (`font-family`).</li>
-                <li>Memberi **warna biru** pada judul (`color`).</li>
-            </ul>
-        </article>
-    
-        <hr>
-    
-        <footer>
-            <p>Hak Cipta &copy; 2025 | Latihan HTML & CSS</p>
-        </footer>
-    </div>
+
+        <section class="service-cards-section">
+            <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                <div class="card-grid">
+
+                    <div class="card">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/11526154352952086420_0" alt="Desain 3D" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Desain 3D</h3>
+                            <p class="card-description">
+                                Visualisasi 3D fotorealistis yang menangkap setiap tekstur, pencahayaan, dan detail estetika bangunan.
+                            </p>
+                            <a href="#" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/14572092298477915248_0" alt="Gambar Kerja 2D" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Gambar Kerja 2D</h3>
+                            <p class="card-description">
+                                Fokus pada kejelasan dimensi, notasi, dan spesifikasi material untuk meminimalkan rework konstruksi.
+                            </p>
+                            <a href="#" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/4521728510302451157_0" alt="RAB" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Rencana Anggaran Biaya (RAB)</h3>
+                            <p class="card-description">
+                                Perhitungan RAB yang transparan dan rinci, mencakup biaya material, upah kerja, dan biaya tidak terduga.
+                            </p>
+                            <a href="#" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <div class="container">
+                <h2 class="section-title">Desain Kami</h2>
+                <p class="hero-description" style="margin-bottom: var(--spacing-md);">
+                    Lihatlah beberapa karya terbaik kami yang menunjukkan detail, standar, dan kualitas yang kami tawarkan.
+                </p>
+                <img src="
+
+http://googleusercontent.com/image_collection/image_retrieval/4796773617780753992_0
+" alt="Portofolio Desain Bangunan" class="feature-image">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryuu Desain. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
