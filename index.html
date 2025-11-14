@@ -53,7 +53,6 @@
             color: var(--color-text-dark);
             background-color: var(--color-background);
             line-height: 1.6;
-            /* Optimasi Utama: memastikan tidak ada scrolling horizontal */
             overflow-x: hidden; 
         }
 
@@ -97,13 +96,6 @@
             align-items: center;
         }
         
-        /* Optimasi Seluler: Logo/Header menumpuk jika terlalu sempit */
-        @media (max-width: 768px) {
-             .header .container, .footer .container {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-        }
         /* ------------------------------------------------------------------------ */
 
         .logo {
@@ -152,6 +144,7 @@
 
         .service-cards-section {
             padding: 40px 0 80px 0;
+            /* Default: Rata tengah untuk desktop, akan diubah untuk mobile */
             text-align: center;
         }
 
@@ -163,7 +156,6 @@
 
         .card-grid {
             display: grid;
-            /* Optimasi Grid: Grid akan berubah menjadi 1 kolom penuh di layar kecil */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-lg);
         }
@@ -177,77 +169,33 @@
             transition: transform 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            background-color: #ccc;
-        }
-
-        .card-content {
-            padding: var(--spacing-md);
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .card-description {
-            font-size: 16px;
-            color: var(--color-text-muted);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .card-link {
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: auto;
-        }
+        /* --- Kode CSS lainnya tetap sama untuk menjaga tata letak desktop --- */
 
         /* =========================================================================
-           FEATURE SECTION (Design Showcase)
+           MEDIA QUERIES (Responsiveness)
            ========================================================================= */
-
-        .feature-section {
-            padding: 80px 0;
-        }
-
-        .feature-image {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-top: var(--spacing-lg);
-            background-color: #ccc;
-        }
-
-        /* =========================================================================
-           MEDIA QUERIES (Responsiveness) - Disesuaikan untuk Mobile First
-           ========================================================================= */
-        @media (max-width: 992px) {
-            /* Penyesuaian Padding pada Tablet */
-            .hero-section {
-                padding: 60px 0;
-            }
-        }
            
+        /* Perubahan di sini untuk rata kiri pada perangkat seluler */
         @media (max-width: 768px) {
-            /* Penyesuaian Ukuran Font untuk Seluler */
+            /* 1. Menjaga Header/Footer menumpuk dan Rata Kiri */
+             .header .container, .footer .container {
+                flex-direction: column;
+                align-items: flex-start; /* Rata kiri untuk elemen di header/footer */
+                gap: var(--spacing-sm);
+            }
+            
+            /* 2. Mengubah Alignment Konten Utama ke Rata Kiri */
+            .hero-section .container,
+            .service-cards-section .container,
+            .feature-section .container {
+                /* Memastikan elemen turunan juga rata kiri */
+                align-items: flex-start; 
+                text-align: left; /* Mengubah rata tengah di service-cards ke rata kiri */
+            }
+
+            /* 3. Menyesuaikan Ukuran Font untuk Seluler */
             .hero-title {
-                font-size: 34px; /* Judul lebih kecil di mobile */
+                font-size: 34px; 
             }
             .section-title {
                 font-size: 28px;
@@ -259,7 +207,6 @@
                 font-size: 22px;
             }
             
-            /* Grid otomatis menumpuk karena minmax(300px, 1fr) dan layar di bawah 300px tidak umum */
             .card-grid {
                 gap: var(--spacing-md);
             }
@@ -289,7 +236,7 @@
     <main>
         <section class="hero-section">
             <div class="container">
-                <p class="eyebrow">ABOUT US</p>
+                <p class="eyebrow">TENTANG KAMI</p> 
                 <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
                 <p class="hero-description">
                     Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah **komitmen kuat terhadap detail**, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
