@@ -7,8 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         /* 1. FONT UTENDO (Teks Normal) */
-        
-        /* PATH DAN FORMAT BARU UNTUK UTENDO */
         @font-face {
             font-family: 'Utendo';
             /* Jalur dan format baru: fonts/Utendo-Regular.ttf */
@@ -18,9 +16,6 @@
             font-display: swap;
         }
 
-        /* Jika Anda memiliki versi bold Utendo yang ingin digunakan
-           (Meskipun Inter digunakan untuk tebal, Utendo tetap didefinisikan 
-            dengan Inter sebagai fallback) */
         @font-face {
             font-family: 'Utendo';
             src: url('fonts/Utendo-Bold.ttf') format('truetype');
@@ -62,15 +57,12 @@
             line-height: 1.6;
         }
 
-        /* Menargetkan semua tag yang umumnya dicetak tebal */
+        /* PERUBAHAN UTAMA: MENGATUR FONT TEBAL KE INTER */
         strong, b, 
-        /* Menargetkan elemen judul, logo, dan tautan yang dicetak tebal */
         .logo, .hero-title, .section-title, .card-title, .card-link {
             font-family: var(--font-display); /* Menggunakan Inter */
         }
         
-        /* ------------------- CSS lainnya tetap sama ------------------- */
-
         a {
             text-decoration: none;
             color: var(--color-text-dark);
@@ -251,5 +243,82 @@
 </head>
 <body>
 
-    </body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">Ryuu Project</div>
+            <div class="social-links">
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <p class="eyebrow">ABOUT US</p>
+                <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
+                <p class="hero-description">
+                    Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah **komitmen kuat terhadap detail**, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
+                </p>
+            </div>
+        </section>
+
+        <section class="service-cards-section">
+            <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                <div class="card-grid">
+
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Desain 3D" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Desain 3D</h3>
+                            <p class="card-description">
+                                Visualisasi 3D fotorealistis yang menangkap setiap tekstur, pencahayaan, dan detail estetika bangunan.
+                            </p>
+                            <a href="desain-3d.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Gambar Kerja 2D" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Gambar Kerja 2D</h3>
+                            <p class="card-description">
+                                Fokus pada kejelasan dimensi, notasi, dan spesifikasi material untuk meminimalkan rework konstruksi.
+                            </p>
+                            <a href="gambar-2d.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="RAB" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Rencana Anggaran Biaya (RAB)</h3>
+                            <p class="card-description">
+                                Perhitungan RAB yang transparan dan rinci, mencakup biaya material, upah kerja, dan biaya tidak terduga.
+                            </p>
+                            <a href="rab-detail.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <div class="container">
+                <h2 class="section-title">Desain Kami</h2>
+                <p class="hero-description" style="margin-bottom: var(--spacing-md);">
+                    Lihatlah beberapa karya terbaik kami yang menunjukkan detail, standar, dan kualitas yang kami tawarkan.
+                </p>
+                <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Portofolio Desain Bangunan" class="feature-image">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryuu Desain. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
