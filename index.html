@@ -96,6 +96,19 @@
             align-items: center;
         }
         
+        /* Optimasi Seluler: Header menumpuk dan Logo rata kiri */
+        @media (max-width: 768px) {
+             .header .container, .footer .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                /* Tambahan: memastikan elemen di dalam header container rata kiri di mobile */
+                align-items: flex-start; 
+            }
+            /* Tambahan: Mengganti rata tengah default footer ke rata kiri di mobile */
+             .footer .container {
+                align-items: flex-start;
+             }
+        }
         /* ------------------------------------------------------------------------ */
 
         .logo {
@@ -103,6 +116,14 @@
             font-weight: 800;
             letter-spacing: -1px;
             color: var(--color-text-light);
+        }
+        
+        /* Tambahan CSS untuk memastikan logo rata kiri */
+        @media (max-width: 768px) {
+             .logo {
+                width: 100%; /* Agar bisa mengambil lebar penuh dan rata kiri */
+                text-align: left;
+            }
         }
 
         .social-links {
@@ -144,7 +165,6 @@
 
         .service-cards-section {
             padding: 40px 0 80px 0;
-            /* Default: Rata tengah untuk desktop, akan diubah untuk mobile */
             text-align: center;
         }
 
@@ -169,31 +189,73 @@
             transition: transform 0.3s ease;
         }
 
-        /* --- Kode CSS lainnya tetap sama untuk menjaga tata letak desktop --- */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #ccc;
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-link {
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+        }
+
+        /* =========================================================================
+           FEATURE SECTION (Design Showcase)
+           ========================================================================= */
+
+        .feature-section {
+            padding: 80px 0;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-top: var(--spacing-lg);
+            background-color: #ccc;
+        }
 
         /* =========================================================================
            MEDIA QUERIES (Responsiveness)
            ========================================================================= */
+        @media (max-width: 992px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+        }
            
-        /* Perubahan di sini untuk rata kiri pada perangkat seluler */
         @media (max-width: 768px) {
-            /* 1. Menjaga Header/Footer menumpuk dan Rata Kiri */
-             .header .container, .footer .container {
-                flex-direction: column;
-                align-items: flex-start; /* Rata kiri untuk elemen di header/footer */
-                gap: var(--spacing-sm);
-            }
-            
-            /* 2. Mengubah Alignment Konten Utama ke Rata Kiri */
-            .hero-section .container,
-            .service-cards-section .container,
-            .feature-section .container {
-                /* Memastikan elemen turunan juga rata kiri */
-                align-items: flex-start; 
-                text-align: left; /* Mengubah rata tengah di service-cards ke rata kiri */
-            }
-
-            /* 3. Menyesuaikan Ukuran Font untuk Seluler */
             .hero-title {
                 font-size: 34px; 
             }
@@ -206,14 +268,12 @@
             .card-title {
                 font-size: 22px;
             }
-            
             .card-grid {
                 gap: var(--spacing-md);
             }
         }
         
         @media (max-width: 480px) {
-            /* Penyesuaian Ukuran Font Sangat Kecil */
             .hero-title {
                 font-size: 28px;
             }
@@ -227,7 +287,7 @@
 
     <header class="header">
         <div class="container">
-            <div class="logo">Ryuu Project</div>
+            <div class="logo">Ryuu Desain</div>
             <div class="social-links">
                 </div>
         </div>
@@ -236,7 +296,7 @@
     <main>
         <section class="hero-section">
             <div class="container">
-                <p class="eyebrow">TENTANG KAMI</p> 
+                <p class="eyebrow">TENTANG KAMI</p>
                 <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
                 <p class="hero-description">
                     Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah **komitmen kuat terhadap detail**, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
