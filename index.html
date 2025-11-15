@@ -9,6 +9,7 @@
         /* 1. FONT UTENDO (Teks Normal) */
         @font-face {
             font-family: 'Utendo';
+            /* Jalur dan format Utendo */
             src: url('fonts/Utendo-Regular.ttf') format('truetype'); 
             font-weight: 400;
             font-style: normal;
@@ -130,7 +131,7 @@
             height: 25px; 
             cursor: pointer;
             z-index: 1100; 
-            position: relative; /* Penting: Dibuat sebagai parent untuk absolute positioning */
+            position: relative; 
         }
 
         .hamburger-menu div {
@@ -140,7 +141,6 @@
             border-radius: 2px;
             transition: all 0.3s ease;
             
-            /* Tambahan: Siapkan untuk pergeseran mutlak (absolute) */
             position: absolute;
             left: 0;
         }
@@ -159,17 +159,15 @@
 
         /* Animasi Hamburger Icon - Perbaikan Final & Paling Stabil */
         .hamburger-menu.open .bar1 {
-            /* Pindah ke tengah, lalu putar -45 derajat */
             top: 50%;
             transform: translateY(-50%) rotate(-45deg); 
         }
         .hamburger-menu.open .bar2 {
-            opacity: 0; /* Hilangkan bilah tengah */
+            opacity: 0; 
         }
         .hamburger-menu.open .bar3 {
-            /* Pindah ke tengah, lalu putar 45 derajat */
-            top: 50%; /* Pindah ke tengah */
-            transform: translateY(-50%) rotate(45deg); /* Geser ke tengah lalu putar */
+            top: 50%; 
+            transform: translateY(-50%) rotate(45deg); 
         }
 
 
@@ -236,13 +234,98 @@
         /* ------------------------------------ */
 
         /* =========================================================================
-           ... Bagian CSS konten lainnya (tetap sama) ...
+           CONTENT SECTIONS
            ========================================================================= */
 
         .hero-section {
             padding: 80px 0;
         }
 
+        .feature-section {
+            padding: 80px 0;
+        }
+
+        /* =========================================================================
+           MEDIA QUERIES (Responsiveness)
+           ========================================================================= */
+           
+        @media (max-width: 992px) {
+            .hero-section {
+                padding: 60px 0; /* Jarak default mobile/tablet */
+            }
+            .feature-section {
+                padding: 60px 0; /* Jarak default mobile/tablet */
+            }
+            .main-nav {
+                display: none; 
+            }
+            .hamburger-menu {
+                display: flex; 
+            }
+        }
+           
+        @media (max-width: 768px) {
+            /* PERUBAHAN 1: Kurangi jarak pada "Tentang Kami" (hero-section) */
+            .hero-section {
+                padding-top: 40px; /* Kurangi jarak atas setelah header */
+                padding-bottom: 40px;
+            }
+            /* PERUBAHAN 2: Kurangi jarak pada "Desain Kami" (feature-section) */
+            .feature-section {
+                padding-top: 0; /* Hilangkan jarak atas setelah hero-section */
+                padding-bottom: 40px;
+            }
+            
+            .header .container {
+                align-items: center; 
+                flex-direction: row; 
+                padding: 0 var(--spacing-md);
+            }
+            
+            .footer .container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
+            .logo {
+                width: auto; 
+                text-align: left;
+            }
+            
+            .hero-title {
+                font-size: 34px; 
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .hero-description, .card-description {
+                font-size: 16px;
+            }
+            .card-title {
+                font-size: 22px;
+            }
+            .card-grid {
+                gap: var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .mobile-nav-overlay ul {
+                width: 90%; 
+            }
+        }
+        /* =========================================================================
+           END MEDIA QUERIES
+           ========================================================================= */
+        
+        /* CSS Konten Normal (tetap sama) */
         .eyebrow {
             font-size: 16px;
             color: var(--color-text-muted);
@@ -328,10 +411,6 @@
             margin-top: auto;
         }
 
-        .feature-section {
-            padding: 80px 0;
-        }
-
         .feature-image {
             width: 100%;
             height: auto;
@@ -352,68 +431,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        /* =========================================================================
-           MEDIA QUERIES (Responsiveness)
-           ========================================================================= */
-        @media (max-width: 992px) {
-            .hero-section {
-                padding: 60px 0;
-            }
-            .main-nav {
-                display: none; 
-            }
-            .hamburger-menu {
-                display: flex; 
-            }
-        }
-           
-        @media (max-width: 768px) {
-            .header .container {
-                align-items: center; 
-                flex-direction: row; 
-                padding: 0 var(--spacing-md);
-            }
-            
-            .footer .container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-sm);
-            }
-
-            .logo {
-                width: auto; 
-                text-align: left;
-            }
-            
-            .hero-title {
-                font-size: 34px; 
-            }
-            .section-title {
-                font-size: 28px;
-            }
-            .hero-description, .card-description {
-                font-size: 16px;
-            }
-            .card-title {
-                font-size: 22px;
-            }
-            .card-grid {
-                gap: var(--spacing-md);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 28px;
-            }
-            .section-title {
-                font-size: 24px;
-            }
-            .mobile-nav-overlay ul {
-                width: 90%; 
-            }
         }
     </style>
 </head>
@@ -455,7 +472,7 @@
                 <p class="eyebrow">TENTANG KAMI</p>
                 <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
                 <p class="hero-description">
-                    Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah **komitmen kuat terhadap detail**, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
+                    Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah komitmen kuat terhadap detail, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
                 </p>
             </div>
         </section>
