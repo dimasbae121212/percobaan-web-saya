@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryuu Desain - Jasa Desain Bangunan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* 1. FONT UTENDO (Teks Normal) */
         @font-face {
@@ -54,11 +55,11 @@
             background-color: var(--color-background);
             line-height: 1.6;
             overflow-x: hidden; 
-            padding-top: 70px; /* Dipertahankan untuk mengkompensasi header fixed */
+            padding-top: 55px; /* Kompensasi header fixed */
         }
 
         strong, b, 
-        .logo, .hero-title, .section-title, .card-title, .card-link {
+        .logo, .hero-title, .section-title, .card-title, .card-link, .button {
             font-family: var(--font-display); 
         }
         
@@ -86,7 +87,7 @@
         .header {
             background-color: var(--color-primary);
             color: var(--color-text-light);
-            padding: 15px 0;
+            padding: 10px 0; /* Header yang lebih ringkas */
             position: fixed; 
             width: 100%;
             top: 0;
@@ -104,7 +105,7 @@
 
         .logo {
             font-size: 28px;
-            font-weight: 800; /* Dibuat tebal secara default */
+            font-weight: 800; 
             letter-spacing: -1px;
             color: var(--color-text-light);
             z-index: 1000; 
@@ -151,19 +152,7 @@
             left: 0;
         }
 
-        /* Penempatan Awal Bilah-bilah Menu */
-        .hamburger-menu .bar1 {
-            top: 0;
-        }
-        .hamburger-menu .bar2 {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .hamburger-menu .bar3 {
-            bottom: 0;
-        }
-
-        /* Animasi Hamburger Icon - Ikon Silang */
+        /* Ikon Silang */
         .hamburger-menu.open .bar1 {
             top: 50%;
             transform: translateY(-50%) rotate(-45deg); 
@@ -176,8 +165,7 @@
             transform: translateY(-50%) rotate(45deg); 
         }
 
-
-        /* --- Overlay Navigasi Mobile --- */
+        /* Overlay Navigasi Mobile */
         .mobile-nav-overlay {
             position: fixed;
             top: 0;
@@ -199,11 +187,10 @@
             opacity: 1;
         }
 
-        /* Gaya Panel Menu itu sendiri */
         .mobile-nav-overlay ul {
             list-style: none;
             text-align: left;
-            padding: 100px var(--spacing-lg) var(--spacing-lg); 
+            padding: 80px var(--spacing-lg) var(--spacing-lg); /* Menyesuaikan padding atas */
             background-color: var(--color-primary); 
             width: 75%; 
             height: 100%;
@@ -221,10 +208,6 @@
             padding-bottom: 8px;
         }
         
-        .mobile-nav-overlay ul li:last-child {
-            border-bottom: none;
-        }
-
         .mobile-nav-overlay ul li a {
             color: var(--color-text-light);
             font-family: var(--font-display);
@@ -234,35 +217,31 @@
             transition: color 0.3s ease;
         }
 
-        .mobile-nav-overlay ul li a:hover {
-            color: var(--color-background); 
-        }
-        /* ------------------------------------ */
-
         /* =========================================================================
-           CONTENT SECTIONS
+           CONTENT SECTIONS & UTILITIES
            ========================================================================= */
 
+        .section-padding {
+             padding: 80px 0; /* Padding default untuk desktop */
+        }
         .hero-section {
-            padding: 80px 0;
+            padding-top: 80px;
         }
 
-        .feature-section {
-            padding: 80px 0;
-        }
-
-        .service-cards-section {
-            padding: 40px 0 80px 0;
-            text-align: center;
-        }
-        
-        /* CSS Konten Normal (tetap sama) */
+        /* Judul Section */
         .eyebrow {
             font-size: 16px;
             color: var(--color-text-muted);
             margin-bottom: var(--spacing-sm);
         }
 
+        .section-title {
+            font-size: 36px;
+            margin-bottom: var(--spacing-lg);
+            font-weight: 800; /* Cetak tebal untuk semua perangkat */
+            font-family: var(--font-display);
+        }
+        
         .hero-title {
             font-size: 48px;
             line-height: 1.1;
@@ -276,20 +255,55 @@
             text-align: justify;
             max-width: 900px;
         }
-
-        .section-title {
-            font-size: 36px;
-            margin-bottom: var(--spacing-lg);
-            font-weight: 800; /* Perubahan: Dibuat cetak tebal untuk semua perangkat */
-            font-family: var(--font-display); /* Pastikan menggunakan font display/Inter */
+        
+        /* Tombol */
+        .button {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: var(--spacing-md);
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #836752;
         }
 
+        /* Contact Section Specific */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin-top: var(--spacing-md);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            font-size: 18px;
+            font-family: var(--font-body);
+        }
+        .contact-item i {
+            width: 30px;
+            text-align: center;
+            font-size: 24px;
+            color: var(--color-primary);
+        }
+        .contact-name {
+            font-weight: 600;
+            font-family: var(--font-display);
+        }
+        
+        /* Card Styles */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: var(--spacing-lg);
         }
-
+        /* ... (CSS card lainnya tetap sama) ... */
         .card {
             background-color: var(--color-text-light);
             border-radius: 16px;
@@ -298,38 +312,32 @@
             text-align: left;
             transition: transform 0.3s ease;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
-
         .card-image {
             width: 100%;
             height: 240px;
             object-fit: cover;
             background-color: #ccc;
         }
-
         .card-content {
             padding: var(--spacing-md);
             display: flex;
             flex-direction: column;
             gap: var(--spacing-sm);
         }
-
         .card-title {
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 8px;
         }
-
         .card-description {
             font-size: 16px;
             color: var(--color-text-muted);
             margin-bottom: var(--spacing-md);
         }
-
         .card-link {
             font-weight: 600;
             display: inline-flex;
@@ -337,7 +345,6 @@
             gap: 5px;
             margin-top: auto;
         }
-
         .feature-image {
             width: 100%;
             height: auto;
@@ -352,6 +359,7 @@
             background-color: var(--color-primary);
             color: var(--color-text-light);
             padding: var(--spacing-md) 0;
+            margin-top: var(--spacing-lg); /* Jarak dari section terakhir */
         }
         
         .footer .container {
@@ -365,11 +373,8 @@
            ========================================================================= */
            
         @media (max-width: 992px) {
-            .hero-section {
-                padding: 60px 0; 
-            }
-            .feature-section {
-                padding: 60px 0; 
+            .section-padding {
+                padding: 60px 0;
             }
             .main-nav {
                 display: none; 
@@ -380,23 +385,18 @@
         }
            
         @media (max-width: 768px) {
-            /* Pastikan body memiliki padding-top yang cukup untuk header fixed */
             body {
-                padding-top: 55px; /* Disesuaikan sedikit lebih kecil */
+                padding-top: 55px; 
             }
 
-            /* Perubahan 1: Mengurangi ukuran font logo di mobile */
-            .logo {
-                font-size: 22px; 
-            }
-
-            /* Penyesuaian Header Mobile */
             .header {
                 padding: 10px 0; 
             }
-
-            /* Penyesuaian Hamburger Menu (ukuran sudah diperkecil di permintaan sebelumnya) */
-            /* .hamburger-menu { width: 25px; height: 20px; } */
+            
+            /* Perubahan: Mengurangi ukuran font logo di mobile */
+            .logo {
+                font-size: 22px; 
+            }
 
             /* Penyesuaian jarak vertikal pada konten */
             .hero-section {
@@ -412,12 +412,11 @@
                 padding-bottom: 40px;
             }
             
-            .header .container {
-                align-items: center; 
-                flex-direction: row; 
-                padding: 0 var(--spacing-md);
+            /* Menyesuaikan padding untuk section baru di mobile */
+             .section-padding {
+                padding: 40px 0;
             }
-            
+
             /* Penyesuaian ukuran font pada mobile/tablet */
             .hero-title {
                 font-size: 28px; 
@@ -445,9 +444,6 @@
         }
         
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 28px;
-            }
             .section-title {
                 font-size: 24px;
             }
@@ -467,11 +463,11 @@
             <div class="logo">Ryuu Desain</div>
             
             <nav class="main-nav">
-                <a href="menu/beranda.html">Beranda</a>
-                <a href="menu/harga.html">Harga</a>
-                <a href="menu/portofolio.html">Portofolio</a>
-                <a href="menu/informasi.html">Informasi</a>
-                <a href="menu/kontak.html">Kontak</a>
+                <a href="#beranda">Beranda</a>
+                <a href="#desain">Desain Kami</a>
+                <a href="#layanan">Layanan Kami</a>
+                <a href="#harga">Harga</a>
+                <a href="#kontak">Kontak</a>
             </nav>
 
             <div class="hamburger-menu" id="hamburgerMenu">
@@ -483,17 +479,17 @@
 
         <div class="mobile-nav-overlay" id="mobileNavOverlay">
             <ul>
-                <li><a href="menu/beranda.html">Beranda</a></li>
-                <li><a href="menu/harga.html">Harga</a></li>
-                <li><a href="menu/portofolio.html">Portofolio</a></li>
-                <li><a href="menu/informasi.html">Informasi</a></li>
-                <li><a href="menu/kontak.html">Kontak</a></li>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#desain">Desain Kami</a></li>
+                <li><a href="#layanan">Layanan Kami</a></li>
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="#kontak">Kontak</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <section class="hero-section">
+        <section class="hero-section" id="beranda">
             <div class="container">
                 <p class="eyebrow">TENTANG KAMI</p>
                 <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
@@ -503,7 +499,7 @@
             </div>
         </section>
 
-        <section class="feature-section">
+        <section class="feature-section" id="desain">
             <div class="container">
                 <h2 class="section-title">Desain Kami</h2>
                 <p class="hero-description" style="margin-bottom: var(--spacing-md);">
@@ -513,9 +509,9 @@
             </div>
         </section>
 
-        <section class="service-cards-section">
+        <section class="service-cards-section section-padding" id="layanan">
             <div class="container">
-                 <h2 class="section-title">Layanan Kami</h2>
+                <h2 class="section-title">Layanan Kami</h2>
                 <div class="card-grid">
 
                     <div class="card">
@@ -565,6 +561,51 @@
                 </div>
             </div>
         </section>
+        
+        <section class="price-section section-padding" id="harga" style="text-align: center;">
+            <div class="container">
+                <h2 class="section-title">Harga</h2>
+                <p class="hero-description" style="text-align: center; margin-bottom: var(--spacing-md);">
+                    Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan dengan menghubungi kami sekarang.
+                </p>
+                <a href="https://wa.me/6281234567890" class="button" target="_blank">
+                    <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Cek Harga via WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <section class="contact-section section-padding" id="kontak">
+            <div class="container">
+                <h2 class="section-title">Kontak</h2>
+                <p class="hero-description" style="margin-bottom: var(--spacing-lg);">
+                    Hubungi kami melalui media sosial dan saluran komunikasi di bawah ini.
+                </p>
+                
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp:</span>
+                        <span class="contact-name">belum ada</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram:</span>
+                        <span class="contact-name">belum ada</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook:</span>
+                        <span class="contact-name">belum ada</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email:</span>
+                        <span class="contact-name">belum ada</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
@@ -588,7 +629,7 @@
             }
         });
 
-        // Menutup menu saat mengklik tautan di overlay (opsional)
+        // Menutup menu saat mengklik tautan di overlay
         mobileNavOverlay.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburgerMenu.classList.remove('open');
