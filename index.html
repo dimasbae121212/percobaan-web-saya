@@ -41,7 +41,6 @@
             --spacing-lg: 32px;
             --spacing-md: 24px;
             --spacing-sm: 16px;
-            --spacing-xs: 8px; /* BARU: Spacing ekstra kecil */
         }
 
         * {
@@ -88,7 +87,7 @@
         .header {
             background-color: var(--color-primary);
             color: var(--color-text-light);
-            padding: 10px 0; 
+            padding: 10px 0; /* Header yang lebih ringkas */
             position: fixed; 
             width: 100%;
             top: 0;
@@ -296,45 +295,53 @@
             text-align: center;
         }
 
-
-        /* Contact Section Specific - DIPERBARUI */
+        /* Contact Section Specific - PERUBAHAN DI SINI */
         .contact-list {
             list-style: none;
             padding: 0;
             margin-top: var(--spacing-md);
-            max-width: 500px; /* Batasi lebar daftar kontak */
+            /* Membatasi lebar daftar agar perataan terlihat baik */
+            max-width: 500px; 
             margin-left: auto;
             margin-right: auto;
         }
+        
         .contact-item {
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs); /* Mengurangi jarak antar elemen */
+            /* Jarak horizontal lebih kecil (var(--spacing-sm) = 16px) */
+            gap: var(--spacing-sm); 
             margin-bottom: var(--spacing-sm);
-            font-size: 18px; /* Default Desktop */
+            font-size: 18px;
             font-family: var(--font-body);
         }
+        
         .contact-item i {
             width: 30px;
             text-align: center;
             font-size: 24px;
             color: var(--color-primary);
+            /* Menjaga ikon tetap di kiri */
+            flex-shrink: 0; 
         }
+        
         .contact-label {
-            /* Pastikan label memiliki lebar tetap agar tanda ":" sejajar */
-            display: inline-block;
-            width: 130px; /* Lebar yang disesuaikan agar cukup untuk label terpanjang */
+            /* Perataan Titik Dua: Memberi lebar tetap pada label dan titik dua */
+            width: 110px; /* Lebar yang cukup untuk menampung label terpanjang + titik dua */
             text-align: left;
-            padding-right: var(--spacing-xs); /* Jarak ke tanda titik dua */
+            /* Menjaga label tetap di tengah */
+            flex-shrink: 0; 
         }
+        
         .contact-name {
             font-weight: 600;
             font-family: var(--font-display);
-            /* Jarak ke nama kontak setelah titik dua */
-            margin-left: var(--spacing-xs);
+            /* Memungkinkan nama kontak mengisi sisa ruang */
+            flex-grow: 1; 
+            text-align: left;
         }
         
-        /* Card Styles */
+        /* Card Styles (tidak diubah) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -432,18 +439,6 @@
             .logo {
                 font-size: 22px; 
             }
-            
-            /* Penyesuaian ukuran font kontak di mobile */
-            .contact-item {
-                font-size: 16px; 
-            }
-            .contact-item i {
-                font-size: 20px;
-                width: 25px;
-            }
-            .contact-label {
-                width: 100px; /* Lebar label yang lebih kecil */
-            }
 
             /* Penyesuaian jarak vertikal pada konten */
             .hero-section {
@@ -481,6 +476,19 @@
                 gap: var(--spacing-md);
             }
 
+            /* Perubahan Mobile: Mengurangi ukuran font item kontak */
+            .contact-item {
+                font-size: 16px;
+                gap: var(--spacing-sm); /* Jarak tetap di mobile */
+            }
+            .contact-item i {
+                font-size: 20px;
+            }
+            .contact-label {
+                width: 90px; /* Lebar label dikecilkan di mobile */
+            }
+
+
             /* Penyesuaian Footer */
             .footer .container {
                 flex-direction: column;
@@ -490,7 +498,7 @@
             }
 
             .price-box {
-                padding: var(--spacing-md); 
+                padding: var(--spacing-md); /* Kurangi padding bingkai harga di mobile */
             }
         }
         
