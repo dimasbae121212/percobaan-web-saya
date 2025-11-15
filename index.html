@@ -6,11 +6,9 @@
     <title>Ryuu Desain - Jasa Desain Bangunan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS yang sama dengan sebelumnya */
         /* 1. FONT UTENDO (Teks Normal) */
         @font-face {
             font-family: 'Utendo';
-            /* Jalur dan format Utendo */
             src: url('fonts/Utendo-Regular.ttf') format('truetype'); 
             font-weight: 400;
             font-style: normal;
@@ -132,6 +130,7 @@
             height: 25px; 
             cursor: pointer;
             z-index: 1100; 
+            position: relative; /* Penting: Dibuat sebagai parent untuk absolute positioning */
         }
 
         .hamburger-menu div {
@@ -140,23 +139,39 @@
             background-color: var(--color-text-light);
             border-radius: 2px;
             transition: all 0.3s ease;
-            /* Perubahan: Transform-origin diatur ke pusat untuk rotasi yang lebih baik */
-            transform-origin: 4px; /* Awal rotasi sedikit di kanan */
+            
+            /* Tambahan: Siapkan untuk pergeseran mutlak (absolute) */
+            position: absolute;
+            left: 0;
         }
 
-        /* Animasi Hamburger Icon - Perbaikan Final untuk Simetri */
+        /* Penempatan Awal Bilah-bilah Menu */
+        .hamburger-menu .bar1 {
+            top: 0;
+        }
+        .hamburger-menu .bar2 {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .hamburger-menu .bar3 {
+            bottom: 0;
+        }
+
+        /* Animasi Hamburger Icon - Perbaikan Final & Paling Stabil */
         .hamburger-menu.open .bar1 {
-            /* Pindahkan bar1 ke posisi bar2 (tengah), lalu rotasi dan geser sedikit ke atas agar lebih simetris */
-            transform: translateY(11px) rotate(-45deg);
+            /* Pindah ke tengah, lalu putar -45 derajat */
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg); 
         }
         .hamburger-menu.open .bar2 {
-            opacity: 0;
+            opacity: 0; /* Hilangkan bilah tengah */
         }
         .hamburger-menu.open .bar3 {
-            /* Pindahkan bar3 ke posisi bar2 (tengah), lalu rotasi dan geser sedikit ke bawah agar lebih simetris */
-            transform: translateY(-11px) rotate(45deg);
+            /* Pindah ke tengah, lalu putar 45 derajat */
+            top: 50%; /* Pindah ke tengah */
+            transform: translateY(-50%) rotate(45deg); /* Geser ke tengah lalu putar */
         }
-        /* Catatan: Nilai 11px dihitung dari setengah tinggi hamburger (12.5px) dikurangi setengah jarak antar bar. */
+
 
         /* --- Overlay Navigasi Mobile --- */
         .mobile-nav-overlay {
@@ -221,7 +236,7 @@
         /* ------------------------------------ */
 
         /* =========================================================================
-           ... Bagian CSS lainnya (tetap sama) ...
+           ... Bagian CSS konten lainnya (tetap sama) ...
            ========================================================================= */
 
         .hero-section {
