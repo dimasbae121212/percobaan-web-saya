@@ -157,7 +157,7 @@
             bottom: 0;
         }
 
-        /* Animasi Hamburger Icon - Perbaikan Final & Paling Stabil */
+        /* Animasi Hamburger Icon - Paling Stabil */
         .hamburger-menu.open .bar1 {
             top: 50%;
             transform: translateY(-50%) rotate(-45deg); 
@@ -267,13 +267,18 @@
         @media (max-width: 768px) {
             /* PERUBAHAN 1: Kurangi jarak pada "Tentang Kami" (hero-section) */
             .hero-section {
-                padding-top: 40px; /* Kurangi jarak atas setelah header */
+                padding-top: 40px; 
                 padding-bottom: 40px;
             }
             /* PERUBAHAN 2: Kurangi jarak pada "Desain Kami" (feature-section) */
             .feature-section {
-                padding-top: 0; /* Hilangkan jarak atas setelah hero-section */
+                padding-top: 0; 
                 padding-bottom: 40px;
+            }
+            
+            /* PERUBAHAN 3: Ukuran font "Jasa Desain Bangunan Gedung" diperkecil */
+            .hero-title {
+                font-size: 30px; /* Ukuran font disesuaikan menjadi 30px */
             }
             
             .header .container {
@@ -293,9 +298,6 @@
                 text-align: left;
             }
             
-            .hero-title {
-                font-size: 34px; 
-            }
             .section-title {
                 font-size: 28px;
             }
