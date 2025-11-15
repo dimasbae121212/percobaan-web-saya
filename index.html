@@ -81,13 +81,13 @@
         }
 
         /* =========================================================================
-           HEADER / FOOTER STYLES
+           HEADER / NAVIGATION STYLES
            ========================================================================= */
 
         .header {
             background-color: var(--color-primary);
             color: var(--color-text-light);
-            padding: 10px 0; /* Header yang lebih ringkas */
+            padding: 10px 0; 
             position: fixed; 
             width: 100%;
             top: 0;
@@ -111,7 +111,6 @@
             z-index: 1000; 
         }
         
-        /* --- Gaya Menu Navigasi (Desktop) --- */
         .main-nav {
             display: flex;
             gap: var(--spacing-lg);
@@ -123,17 +122,12 @@
             padding: 5px 0;
             transition: color 0.3s ease;
         }
-
-        .main-nav a:hover {
-            color: #d1d1d1; 
-        }
-        /* ------------------------------------ */
-
-        /* --- Gaya Hamburger Menu (Mobile) --- */
+        
+        /* --- Gaya Hamburger Menu (Perbaikan Eror Garis Tiga) --- */
         .hamburger-menu {
             display: none; 
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-between; /* Perubahan: Mengganti 'space-around' ke 'space-between' untuk kontrol lebih baik */
             width: 25px; 
             height: 20px; 
             cursor: pointer;
@@ -147,12 +141,25 @@
             background-color: var(--color-text-light);
             border-radius: 1px; 
             transition: all 0.3s ease;
-            
-            position: absolute;
+            position: relative; /* Perubahan: Mengubah dari absolute ke relative atau menghapus agar flow bekerja, tapi jika butuh kontrol animasi X tetap pakai position: absolute */
             left: 0;
         }
-
-        /* Ikon Silang */
+        /* Menggunakan position: absolute untuk animasi X */
+        .hamburger-menu div { 
+            position: absolute;
+        }
+        /* Penempatan Awal Bilah-bilah Menu yang diperbaiki */
+        .hamburger-menu .bar1 {
+            top: 0;
+        }
+        .hamburger-menu .bar2 {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .hamburger-menu .bar3 {
+            bottom: 0;
+        }
+        /* Animasi X tetap sama */
         .hamburger-menu.open .bar1 {
             top: 50%;
             transform: translateY(-50%) rotate(-45deg); 
@@ -164,8 +171,10 @@
             top: 50%; 
             transform: translateY(-50%) rotate(45deg); 
         }
+        /* ---------------------------------------------------- */
 
-        /* Overlay Navigasi Mobile */
+
+        /* Overlay Navigasi Mobile (tetap sama) */
         .mobile-nav-overlay {
             position: fixed;
             top: 0;
@@ -190,7 +199,7 @@
         .mobile-nav-overlay ul {
             list-style: none;
             text-align: left;
-            padding: 80px var(--spacing-lg) var(--spacing-lg); /* Menyesuaikan padding atas */
+            padding: 80px var(--spacing-lg) var(--spacing-lg); 
             background-color: var(--color-primary); 
             width: 75%; 
             height: 100%;
@@ -201,12 +210,6 @@
         .mobile-nav-overlay.open ul {
             transform: translateX(0);
         }
-
-        .mobile-nav-overlay ul li {
-            margin-bottom: var(--spacing-md);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-            padding-bottom: 8px;
-        }
         
         .mobile-nav-overlay ul li a {
             color: var(--color-text-light);
@@ -214,46 +217,23 @@
             font-size: 20px; 
             font-weight: 600; 
             display: block;
-            transition: color 0.3s ease;
         }
-
         /* =========================================================================
            CONTENT SECTIONS & UTILITIES
            ========================================================================= */
 
         .section-padding {
-             padding: 80px 0; /* Padding default untuk desktop */
+             padding: 80px 0; 
         }
         .hero-section {
             padding-top: 80px;
         }
 
-        /* Judul Section */
-        .eyebrow {
-            font-size: 16px;
-            color: var(--color-text-muted);
-            margin-bottom: var(--spacing-sm);
-        }
-
         .section-title {
             font-size: 36px;
-            margin-bottom: var(--spacing-lg);
-            font-weight: 800; /* Cetak tebal untuk semua perangkat */
+            margin-bottom: var(--spacing-md); /* Mengurangi margin bawah judul */
+            font-weight: 800; 
             font-family: var(--font-display);
-        }
-        
-        .hero-title {
-            font-size: 48px;
-            line-height: 1.1;
-            margin-bottom: var(--spacing-lg);
-            font-weight: 800;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: var(--color-text-dark);
-            text-align: justify;
-            max-width: 900px;
         }
         
         /* Tombol */
@@ -265,11 +245,34 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 18px;
-            margin-top: var(--spacing-md);
+            margin-top: 0; /* Menghapus margin-top, akan diatur di Harga Section */
+            margin-bottom: var(--spacing-lg); /* Menambah margin bawah tombol */
             transition: background-color 0.3s ease;
         }
         .button:hover {
             background-color: #836752;
+        }
+        
+        /* Kotak Harga Baru */
+        .price-box {
+            background-color: var(--color-text-light);
+            border: 2px solid var(--color-primary); /* Bingkai Kolom Harga */
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .price-box p {
+            font-size: 16px;
+            color: var(--color-text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+        .price-box h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            margin-top: var(--spacing-sm);
         }
 
         /* Contact Section Specific */
@@ -297,75 +300,12 @@
             font-family: var(--font-display);
         }
         
-        /* Card Styles */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: var(--spacing-lg);
-        }
-        /* ... (CSS card lainnya tetap sama) ... */
-        .card {
-            background-color: var(--color-text-light);
-            border-radius: 16px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        .card-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            background-color: #ccc;
-        }
-        .card-content {
-            padding: var(--spacing-md);
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-        .card-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .card-description {
-            font-size: 16px;
-            color: var(--color-text-muted);
-            margin-bottom: var(--spacing-md);
-        }
-        .card-link {
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: auto;
-        }
-        .feature-image {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-top: var(--spacing-lg);
-            background-color: #ccc;
-        }
-
+        /* Footer */
         .footer {
             background-color: var(--color-primary);
             color: var(--color-text-light);
             padding: var(--spacing-md) 0;
-            margin-top: var(--spacing-lg); /* Jarak dari section terakhir */
-        }
-        
-        .footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-top: var(--spacing-lg); 
         }
 
         /* =========================================================================
@@ -388,17 +328,13 @@
             body {
                 padding-top: 55px; 
             }
-
             .header {
                 padding: 10px 0; 
             }
-            
-            /* Perubahan: Mengurangi ukuran font logo di mobile */
             .logo {
                 font-size: 22px; 
             }
-
-            /* Penyesuaian jarak vertikal pada konten */
+            /* Penyesuaian jarak vertikal pada konten mobile */
             .hero-section {
                 padding-top: 40px; 
                 padding-bottom: 40px;
@@ -411,30 +347,18 @@
                 padding-top: 40px; 
                 padding-bottom: 40px;
             }
-            
-            /* Menyesuaikan padding untuk section baru di mobile */
              .section-padding {
                 padding: 40px 0;
-            }
-
-            /* Penyesuaian ukuran font pada mobile/tablet */
-            .hero-title {
-                font-size: 28px; 
             }
             .section-title {
                 font-size: 28px;
             }
-            .hero-description, .card-description {
-                font-size: 16px;
+            .hero-title {
+                font-size: 28px; 
             }
-            .card-title {
-                font-size: 22px;
+            .price-box {
+                padding: var(--spacing-md);
             }
-            .card-grid {
-                gap: var(--spacing-md);
-            }
-
-            /* Penyesuaian Footer */
             .footer .container {
                 flex-direction: column;
                 align-items: center; 
@@ -499,7 +423,7 @@
             </div>
         </section>
 
-        <section class="feature-section" id="desain">
+        <section class="feature-section section-padding" id="desain">
             <div class="container">
                 <h2 class="section-title">Desain Kami</h2>
                 <p class="hero-description" style="margin-bottom: var(--spacing-md);">
@@ -513,47 +437,35 @@
             <div class="container">
                 <h2 class="section-title">Layanan Kami</h2>
                 <div class="card-grid">
-
                     <div class="card">
                         <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Desain 3D" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Desain 3D</h3>
-                            <p class="card-description">
-                                Visualisasi 3D fotorealistis yang menangkap setiap tekstur, pencahayaan, dan detail estetika bangunan.
-                            </p>
+                            <p class="card-description">Visualisasi 3D fotorealistis yang menangkap setiap tekstur, pencahayaan, dan detail estetika bangunan.</p>
                             <a href="desain-3d.html" class="card-link">Selengkapnya →</a>
                         </div>
                     </div>
-
                     <div class="card">
                         <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Gambar Kerja 2D" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Gambar Kerja 2D</h3>
-                            <p class="card-description">
-                                Fokus pada kejelasan dimensi, notasi, dan spesifikasi material untuk meminimalkan rework konstruksi.
-                            </p>
+                            <p class="card-description">Fokus pada kejelasan dimensi, notasi, dan spesifikasi material untuk meminimalkan rework konstruksi.</p>
                             <a href="gambar-2d.html" class="card-link">Selengkapnya →</a>
                         </div>
                     </div>
-
                     <div class="card">
                         <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="RAB" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Rencana Anggaran Biaya (RAB)</h3>
-                            <p class="card-description">
-                                Perhitungan RAB yang transparan dan rinci, mencakup biaya material, upah kerja, dan biaya tidak terduga.
-                            </p>
+                            <p class="card-description">Perhitungan RAB yang transparan dan rinci, mencakup biaya material, upah kerja, dan biaya tidak terduga.</p>
                             <a href="rab-detail.html" class="card-link">Selengkapnya →</a>
                         </div>
                     </div>
-                    
                     <div class="card">
                         <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Desain Interior" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Desain Interior</h3>
-                            <p class="card-description">
-                                Perencanaan ruang dan pemilihan material interior yang harmonis, fungsional, dan sesuai dengan karakter pribadi Anda.
-                            </p>
+                            <p class="card-description">Perencanaan ruang dan pemilihan material interior yang harmonis, fungsional, dan sesuai dengan karakter pribadi Anda.</p>
                             <a href="desain-interior.html" class="card-link">Selengkapnya →</a>
                         </div>
                     </div>
@@ -565,12 +477,26 @@
         <section class="price-section section-padding" id="harga" style="text-align: center;">
             <div class="container">
                 <h2 class="section-title">Harga</h2>
-                <p class="hero-description" style="text-align: center; margin-bottom: var(--spacing-md);">
-                    Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan dengan menghubungi kami sekarang.
-                </p>
+                
                 <a href="https://wa.me/6281234567890" class="button" target="_blank">
                     <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Cek Harga via WhatsApp
                 </a>
+
+                <div class="price-box">
+                    <h3>Paket Desain Lengkap</h3>
+                    <p>Mencakup Gambar Kerja 2D, Visualisasi 3D, dan Rencana Anggaran Biaya (RAB).</p>
+                    
+                    <h3 style="margin-top: var(--spacing-md);">Paket Gambar Kerja (2D)</h3>
+                    <p>Fokus pada gambar teknis siap bangun dan detail konstruksi.</p>
+
+                    <h3 style="margin-top: var(--spacing-md);">Paket Visualisasi (3D)</h3>
+                    <p>Hanya mencakup gambar 3D eksterior atau interior untuk presentasi visual.</p>
+                </div>
+
+                <p class="hero-description" style="text-align: center; margin-top: var(--spacing-lg);">
+                    Dapatkan rincian harga yang lebih spesifik dan penawaran khusus untuk setiap layanan desain yang kami tawarkan dengan menghubungi tim kami.
+                </p>
+                
             </div>
         </section>
 
