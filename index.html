@@ -129,36 +129,36 @@
             flex-direction: column;
             justify-content: space-around;
             width: 30px;
-            height: 25px; /* Tinggi total menu */
+            height: 25px; 
             cursor: pointer;
             z-index: 1100; 
         }
 
         .hamburger-menu div {
             width: 100%;
-            height: 3px; /* Tinggi setiap bar */
+            height: 3px; 
             background-color: var(--color-text-light);
             border-radius: 2px;
             transition: all 0.3s ease;
-            transform-origin: center; /* Penting untuk simetri rotasi */
+            /* Perubahan: Transform-origin diatur ke pusat untuk rotasi yang lebih baik */
+            transform-origin: 4px; /* Awal rotasi sedikit di kanan */
         }
 
-        /* Animasi Hamburger Icon - DIPERBAIKI LAGI agar simetris */
+        /* Animasi Hamburger Icon - Perbaikan Final untuk Simetri */
         .hamburger-menu.open .bar1 {
-            /* Pindahkan bar1 ke tengah vertikal dan putar -45deg */
+            /* Pindahkan bar1 ke posisi bar2 (tengah), lalu rotasi dan geser sedikit ke atas agar lebih simetris */
             transform: translateY(11px) rotate(-45deg);
         }
         .hamburger-menu.open .bar2 {
             opacity: 0;
         }
         .hamburger-menu.open .bar3 {
-            /* Pindahkan bar3 ke tengah vertikal dan putar 45deg */
+            /* Pindahkan bar3 ke posisi bar2 (tengah), lalu rotasi dan geser sedikit ke bawah agar lebih simetris */
             transform: translateY(-11px) rotate(45deg);
         }
-        /* Penjelasan: Tinggi 25px dibagi 2 = 12.5px. Jarak antara bar adalah 12.5px - 1.5px (setengah tinggi bar), jadi 11px adalah nilai translate yang mendekati ideal */
+        /* Catatan: Nilai 11px dihitung dari setengah tinggi hamburger (12.5px) dikurangi setengah jarak antar bar. */
 
-
-        /* --- Overlay Navigasi Mobile - DIPERPOLAS --- */
+        /* --- Overlay Navigasi Mobile --- */
         .mobile-nav-overlay {
             position: fixed;
             top: 0;
@@ -209,7 +209,7 @@
         .mobile-nav-overlay ul li a {
             color: var(--color-text-light);
             font-family: var(--font-display);
-            font-size: 20px; /* PERUBAHAN: Ukuran font dikurangi menjadi 20px */
+            font-size: 20px; 
             font-weight: 600; 
             display: block;
             transition: color 0.3s ease;
