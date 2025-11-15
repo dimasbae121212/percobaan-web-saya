@@ -238,6 +238,12 @@
         }
         .hero-section {
             padding-top: 80px;
+            /* PERUBAHAN: Menambah padding bawah untuk spasi desktop ke bagian berikutnya */
+            padding-bottom: 80px; 
+        }
+        /* Note: feature-section (Desain Kami) defaultnya tidak ada padding atas, sehingga jarak terlihat longgar */
+        .feature-section {
+            padding-top: 0; 
         }
 
         /* Judul Section - DISERAGAMKAN */
@@ -295,9 +301,8 @@
             text-align: center;
         }
 
-        /* Contact Section Specific - PERUBAHAN DI SINI */
+        /* Contact Section Specific */
         .contact-section .container {
-            /* Pastikan konten utama di container (judul, deskripsi) rata kiri */
             text-align: left; 
         }
 
@@ -306,7 +311,6 @@
             padding: 0;
             margin-top: var(--spacing-md);
             max-width: 500px; 
-            /* Menghilangkan centering untuk membuat rata kiri */
             margin-left: 0; 
             margin-right: auto;
         }
@@ -453,7 +457,8 @@
             /* Penyesuaian jarak vertikal pada konten */
             .hero-section {
                 padding-top: 40px; 
-                padding-bottom: 40px;
+                /* Mengurangi padding bawah di mobile karena sudah ada feature-section yang juga punya padding bawah */
+                padding-bottom: 40px; 
             }
             .feature-section {
                 padding-top: 0; 
