@@ -157,7 +157,7 @@
             bottom: 0;
         }
 
-        /* Animasi Hamburger Icon - Perbaikan Final & Paling Stabil */
+        /* Animasi Hamburger Icon - Ikon Silang */
         .hamburger-menu.open .bar1 {
             top: 50%;
             transform: translateY(-50%) rotate(-45deg); 
@@ -245,80 +245,10 @@
             padding: 80px 0;
         }
 
-        /* =========================================================================
-           MEDIA QUERIES (Responsiveness)
-           ========================================================================= */
-           
-        @media (max-width: 992px) {
-            .hero-section {
-                padding: 60px 0; 
-            }
-            .feature-section {
-                padding: 60px 0; 
-            }
-            .main-nav {
-                display: none; 
-            }
-            .hamburger-menu {
-                display: flex; 
-            }
+        .service-cards-section {
+            padding: 40px 0 80px 0;
+            text-align: center;
         }
-           
-        @media (max-width: 768px) {
-            /* Penyesuaian jarak */
-            .hero-section {
-                padding-top: 40px; 
-                padding-bottom: 40px;
-            }
-            .feature-section {
-                padding-top: 0; 
-                padding-bottom: 40px;
-            }
-            
-            .header .container {
-                align-items: center; 
-                flex-direction: row; 
-                padding: 0 var(--spacing-md);
-            }
-            
-            .footer .container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: var(--spacing-sm);
-            }
-
-            /* PERUBAHAN UTAMA: Ukuran font untuk Judul "Jasa Desain Bangunan Gedung" */
-            .hero-title {
-                font-size: 18px; /* Diperkecil untuk tampilan mobile */ 
-            }
-            .section-title {
-                font-size: 28px;
-            }
-            .hero-description, .card-description {
-                font-size: 16px;
-            }
-            .card-title {
-                font-size: 22px;
-            }
-            .card-grid {
-                gap: var(--spacing-md);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 28px;
-            }
-            .section-title {
-                font-size: 24px;
-            }
-            .mobile-nav-overlay ul {
-                width: 90%; 
-            }
-        }
-        /* =========================================================================
-           END MEDIA QUERIES
-           ========================================================================= */
         
         /* CSS Konten Normal (tetap sama) */
         .eyebrow {
@@ -339,11 +269,6 @@
             color: var(--color-text-dark);
             text-align: justify;
             max-width: 900px;
-        }
-
-        .service-cards-section {
-            padding: 40px 0 80px 0;
-            text-align: center;
         }
 
         .section-title {
@@ -427,6 +352,87 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        /* =========================================================================
+           MEDIA QUERIES (Responsiveness)
+           ========================================================================= */
+           
+        @media (max-width: 992px) {
+            .hero-section {
+                padding: 60px 0; 
+            }
+            .feature-section {
+                padding: 60px 0; 
+            }
+            .main-nav {
+                display: none; 
+            }
+            .hamburger-menu {
+                display: flex; 
+            }
+        }
+           
+        @media (max-width: 768px) {
+            /* Penyesuaian jarak vertikal pada konten */
+            .hero-section {
+                padding-top: 40px; 
+                padding-bottom: 40px;
+            }
+            .feature-section {
+                padding-top: 0; 
+                padding-bottom: 40px;
+            }
+            .service-cards-section {
+                padding-top: 40px; 
+                padding-bottom: 40px;
+            }
+            
+            .header .container {
+                align-items: center; 
+                flex-direction: row; 
+                padding: 0 var(--spacing-md);
+            }
+            
+            /* Penyesuaian ukuran font pada mobile/tablet */
+            .hero-title {
+                font-size: 28px; 
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .hero-description, .card-description {
+                font-size: 16px;
+            }
+            .card-title {
+                font-size: 22px;
+            }
+            .card-grid {
+                gap: var(--spacing-md);
+            }
+
+            /* Penyesuaian Footer */
+            .footer .container {
+                flex-direction: column;
+                align-items: center; /* Dipusatkan di mobile */
+                text-align: center;
+                gap: 8px; /* Jarak antar teks copyright */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .mobile-nav-overlay ul {
+                width: 90%; 
+            }
+        }
+        /* =========================================================================
+           END MEDIA QUERIES
+           ========================================================================= */
     </style>
 </head>
 <body>
@@ -569,4 +575,3 @@
 
 </body>
 </html>
-
