@@ -54,7 +54,7 @@
             background-color: var(--color-background);
             line-height: 1.6;
             overflow-x: hidden; 
-            padding-top: 70px; /* Tambahkan padding-top untuk mengkompensasi header fixed */
+            padding-top: 70px; /* Dipertahankan untuk mengkompensasi header fixed */
         }
 
         strong, b, 
@@ -86,13 +86,13 @@
         .header {
             background-color: var(--color-primary);
             color: var(--color-text-light);
-            padding: 15px 0; /* Mengurangi padding vertikal */
-            position: fixed; /* Menjadikan header tetap */
+            padding: 15px 0;
+            position: fixed; 
             width: 100%;
             top: 0;
             left: 0;
-            z-index: 1000; /* Pastikan header di atas konten lain */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Efek bayangan agar terlihat terangkat */
+            z-index: 1000; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
         }
         
         .header .container {
@@ -104,7 +104,7 @@
 
         .logo {
             font-size: 28px;
-            font-weight: 800;
+            font-weight: 800; /* Dibuat tebal secara default */
             letter-spacing: -1px;
             color: var(--color-text-light);
             z-index: 1000; 
@@ -130,11 +130,11 @@
 
         /* --- Gaya Hamburger Menu (Mobile) --- */
         .hamburger-menu {
-            display: none; /* Default hidden, akan ditampilkan di media query */
+            display: none; 
             flex-direction: column;
             justify-content: space-around;
-            width: 25px; /* Mengurangi lebar */
-            height: 20px; /* Mengurangi tinggi */
+            width: 25px; 
+            height: 20px; 
             cursor: pointer;
             z-index: 1100; 
             position: relative; 
@@ -142,9 +142,9 @@
 
         .hamburger-menu div {
             width: 100%;
-            height: 2px; /* Mengurangi tinggi bilah */
+            height: 2px; 
             background-color: var(--color-text-light);
-            border-radius: 1px; /* Mengurangi radius */
+            border-radius: 1px; 
             transition: all 0.3s ease;
             
             position: absolute;
@@ -280,7 +280,8 @@
         .section-title {
             font-size: 36px;
             margin-bottom: var(--spacing-lg);
-            font-weight: 600;
+            font-weight: 800; /* Perubahan: Dibuat cetak tebal untuk semua perangkat */
+            font-family: var(--font-display); /* Pastikan menggunakan font display/Inter */
         }
 
         .card-grid {
@@ -381,22 +382,21 @@
         @media (max-width: 768px) {
             /* Pastikan body memiliki padding-top yang cukup untuk header fixed */
             body {
-                padding-top: 60px; /* Sesuaikan dengan tinggi header mobile yang baru (sekitar 50px + 10px padding) */
+                padding-top: 55px; /* Disesuaikan sedikit lebih kecil */
+            }
+
+            /* Perubahan 1: Mengurangi ukuran font logo di mobile */
+            .logo {
+                font-size: 22px; 
             }
 
             /* Penyesuaian Header Mobile */
             .header {
-                padding: 10px 0; /* Mengurangi padding vertikal di mobile agar lebih pas */
+                padding: 10px 0; 
             }
 
-            /* Penyesuaian Hamburger Menu */
-            .hamburger-menu {
-                width: 25px; /* Lebar yang lebih kecil */
-                height: 20px; /* Tinggi yang lebih kecil */
-            }
-            .hamburger-menu div {
-                height: 2px; /* Tinggi bar yang lebih tipis */
-            }
+            /* Penyesuaian Hamburger Menu (ukuran sudah diperkecil di permintaan sebelumnya) */
+            /* .hamburger-menu { width: 25px; height: 20px; } */
 
             /* Penyesuaian jarak vertikal pada konten */
             .hero-section {
@@ -515,7 +515,7 @@
 
         <section class="service-cards-section">
             <div class="container">
-                <h2 class="section-title">Layanan Kami</h2>
+                 <h2 class="section-title">Layanan Kami</h2>
                 <div class="card-grid">
 
                     <div class="card">
