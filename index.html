@@ -245,9 +245,11 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Grid sekarang akan mencoba menampilkan 4 kolom jika memungkinkan, dan otomatis menumpuk di mobile */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: var(--spacing-lg);
         }
+        /* Catatan: Saya menyesuaikan minmax menjadi 250px agar 4 kolom masih bisa masuk di layar desktop yang lebih kecil */
 
         .card {
             background-color: var(--color-text-light);
@@ -475,6 +477,18 @@
                             <a href="rab-detail.html" class="card-link">Selengkapnya →</a>
                         </div>
                     </div>
+                    
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Desain Interior" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Desain Interior</h3>
+                            <p class="card-description">
+                                Perencanaan ruang dan pemilihan material interior yang harmonis, fungsional, dan sesuai dengan karakter pribadi Anda.
+                            </p>
+                            <a href="desain-interior.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
