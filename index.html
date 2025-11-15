@@ -238,12 +238,19 @@
         }
         .hero-section {
             padding-top: 80px;
-            /* PERUBAHAN: Menambah padding bawah untuk spasi desktop ke bagian berikutnya */
             padding-bottom: 80px; 
+            /* Beranda tetap rata kiri */
+            text-align: left; 
         }
-        /* Note: feature-section (Desain Kami) defaultnya tidak ada padding atas, sehingga jarak terlihat longgar */
         .feature-section {
             padding-top: 0; 
+            /* DESKTOP: Desain Kami Rata Tengah */
+            text-align: center;
+        }
+
+        /* LAYANAN KAMI: Rata Tengah di Desktop */
+        .service-cards-section {
+             text-align: center;
         }
 
         /* Judul Section - DISERAGAMKAN */
@@ -270,8 +277,11 @@
         .hero-description {
             font-size: 18px;
             color: var(--color-text-dark);
+            /* Deskripsi di Beranda tetap justify */
             text-align: justify;
             max-width: 900px;
+            /* Memastikan deskripsi di Desain/Layanan (saat center) tidak terlalu lebar */
+            margin: 0 auto 24px auto; 
         }
         
         /* Tombol */
@@ -298,11 +308,13 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             margin: 0 auto; 
+            /* HARGA: Selalu Rata Tengah */
             text-align: center;
         }
 
         /* Contact Section Specific */
         .contact-section .container {
+            /* KONTAK: Selalu Rata Kiri */
             text-align: left; 
         }
 
@@ -348,9 +360,15 @@
         
         /* Card Styles */
         .card-grid {
+            /* Kartu harus tetap rata kiri dalam grid (auto-alignment) */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: var(--spacing-lg);
+            text-align: left; /* Mengembalikan teks di dalam kartu ke kiri */
+        }
+        .service-cards-section .hero-description {
+            /* Agar deskripsi layanan tidak terlalu lebar saat di tengah */
+            max-width: 800px; 
         }
 
         .card {
@@ -408,7 +426,9 @@
             object-fit: cover;
             border-radius: 16px;
             margin-top: var(--spacing-lg);
-            background-color: #ccc;
+            /* Membuat gambar di Desain Kami rata tengah */
+            margin-left: auto; 
+            margin-right: auto;
         }
 
         .footer {
@@ -441,23 +461,52 @@
         }
            
         @media (max-width: 768px) {
+            /* MOBILE STYLES */
+
+            /* Mengembalikan Desain Kami (Feature Section) ke Rata Kiri di Mobile */
+            .feature-section {
+                text-align: left;
+            }
+            /* Mengembalikan Teks Deskripsi di Desain Kami ke Rata Kiri di Mobile */
+            .feature-section .hero-description {
+                text-align: justify;
+                margin: 0 0 24px 0; /* Hapus margin auto, gunakan 0 kiri/kanan */
+            }
+            
+            /* LAYANAN KAMI: Tetap Rata Tengah di Mobile */
+            .service-cards-section {
+                 text-align: center;
+            }
+            .service-cards-section .hero-description {
+                 text-align: center;
+            }
+            .card-grid {
+                 text-align: left; /* Pastikan konten dalam kartu tetap rata kiri */
+            }
+
+            /* HARGA: Tetap Rata Tengah (Sudah diatur di .price-section .container) */
+            .price-section .container {
+                text-align: center;
+            }
+
+            /* KONTAK: Tetap Rata Kiri (Sudah diatur di .contact-section .container) */
+            .contact-section .container {
+                text-align: left;
+            }
+
+
+            /* Gaya Umum Mobile */
             body {
                 padding-top: 55px; 
             }
-
             .header {
                 padding: 10px 0; 
             }
-            
-            /* Logo Ryuu Desain lebih kecil di mobile */
             .logo {
                 font-size: 22px; 
             }
-
-            /* Penyesuaian jarak vertikal pada konten */
             .hero-section {
                 padding-top: 40px; 
-                /* Mengurangi padding bawah di mobile karena sudah ada feature-section yang juga punya padding bawah */
                 padding-bottom: 40px; 
             }
             .feature-section {
@@ -472,20 +521,14 @@
              .section-padding {
                 padding: 40px 0;
             }
-
-            /* Ukuran font Judul Section di mobile */
             .section-title {
                 font-size: 28px;
-                /* Mengubah text-align untuk kontak agar rata kiri (mobile) */
-                text-align: left;
             }
             .hero-title {
                 font-size: 28px; 
             }
             .hero-description, .card-description {
                 font-size: 16px;
-                /* Mengubah text-align untuk kontak agar rata kiri (mobile) */
-                text-align: left;
             }
             .card-title {
                 font-size: 22px;
@@ -505,22 +548,15 @@
             .contact-label {
                 width: 90px; 
             }
-            
-            /* Kontainer Harga dikembalikan ke rata tengah di mobile karena tombolnya di tengah */
-            .price-section .container {
-                text-align: center;
+            .price-box {
+                padding: var(--spacing-md); 
             }
 
-            /* Penyesuaian Footer */
             .footer .container {
                 flex-direction: column;
                 align-items: center; 
                 text-align: center;
                 gap: 8px; 
-            }
-
-            .price-box {
-                padding: var(--spacing-md); 
             }
         }
         
@@ -574,7 +610,7 @@
             <div class="container">
                 <p class="eyebrow">TENTANG KAMI</p>
                 <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
-                <p class="hero-description">
+                <p class="hero-description" style="margin: 0 0 0 0;">
                     Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah komitmen kuat terhadap detail, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
                 </p>
             </div>
@@ -583,7 +619,7 @@
         <section class="feature-section" id="desain">
             <div class="container">
                 <h2 class="section-title">Desain Kami</h2>
-                <p class="hero-description" style="margin-bottom: var(--spacing-md);">
+                <p class="hero-description">
                     Lihatlah beberapa karya terbaik kami yang menunjukkan detail, standar, dan kualitas yang kami tawarkan.
                 </p>
                 <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Portofolio Desain Bangunan" class="feature-image">
@@ -593,6 +629,9 @@
         <section class="service-cards-section section-padding" id="layanan">
             <div class="container">
                 <h2 class="section-title">Layanan Kami</h2>
+                 <p class="hero-description">
+                    Kami menawarkan empat jenis layanan utama untuk memenuhi kebutuhan desain bangunan Anda.
+                </p>
                 <div class="card-grid">
 
                     <div class="card">
