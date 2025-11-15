@@ -10,6 +10,7 @@
         /* 1. FONT UTENDO (Teks Normal) */
         @font-face {
             font-family: 'Utendo';
+            /* Jalur dan format Utendo */
             src: url('fonts/Utendo-Regular.ttf') format('truetype'); 
             font-weight: 400;
             font-style: normal;
@@ -128,41 +129,45 @@
             flex-direction: column;
             justify-content: space-around;
             width: 30px;
-            height: 25px;
+            height: 25px; /* Tinggi total menu */
             cursor: pointer;
             z-index: 1100; 
-            /* Hapus absolute position di sini, biarkan flexbox yang mengaturnya */
         }
 
         .hamburger-menu div {
             width: 100%;
-            height: 3px;
+            height: 3px; /* Tinggi setiap bar */
             background-color: var(--color-text-light);
             border-radius: 2px;
             transition: all 0.3s ease;
+            transform-origin: center; /* Penting untuk simetri rotasi */
         }
 
-        /* Animasi Hamburger Icon - DIPERBAIKI agar simetris */
+        /* Animasi Hamburger Icon - DIPERBAIKI LAGI agar simetris */
         .hamburger-menu.open .bar1 {
-            transform: rotate(-45deg) translate(-7px, 7px); /* Disesuaikan */
+            /* Pindahkan bar1 ke tengah vertikal dan putar -45deg */
+            transform: translateY(11px) rotate(-45deg);
         }
         .hamburger-menu.open .bar2 {
             opacity: 0;
         }
         .hamburger-menu.open .bar3 {
-            transform: rotate(45deg) translate(-7px, -7px); /* Disesuaikan */
+            /* Pindahkan bar3 ke tengah vertikal dan putar 45deg */
+            transform: translateY(-11px) rotate(45deg);
         }
+        /* Penjelasan: Tinggi 25px dibagi 2 = 12.5px. Jarak antara bar adalah 12.5px - 1.5px (setengah tinggi bar), jadi 11px adalah nilai translate yang mendekati ideal */
 
-        /* --- Overlay Navigasi Mobile - DIPERBAIKI & DIPERPOLAS --- */
+
+        /* --- Overlay Navigasi Mobile - DIPERPOLAS --- */
         .mobile-nav-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Background lebih transparan */
+            background-color: rgba(0, 0, 0, 0.7); 
             display: flex;
-            justify-content: flex-end; /* Dorong menu ke kanan */
+            justify-content: flex-end; 
             align-items: flex-start;
             z-index: 1050;
             visibility: hidden; 
@@ -179,11 +184,10 @@
         .mobile-nav-overlay ul {
             list-style: none;
             text-align: left;
-            padding: 100px var(--spacing-lg) var(--spacing-lg); /* Padding atas besar untuk menghindari logo */
-            background-color: var(--color-primary); /* Warna solid untuk panel menu */
-            width: 75%; /* Lebar menu di mobile */
+            padding: 100px var(--spacing-lg) var(--spacing-lg); 
+            background-color: var(--color-primary); 
+            width: 75%; 
             height: 100%;
-            /* Animasi geser */
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
@@ -194,11 +198,10 @@
 
         .mobile-nav-overlay ul li {
             margin-bottom: var(--spacing-md);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Pemisah antar menu */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
             padding-bottom: 8px;
         }
         
-        /* Hapus pemisah pada item terakhir */
         .mobile-nav-overlay ul li:last-child {
             border-bottom: none;
         }
@@ -206,8 +209,8 @@
         .mobile-nav-overlay ul li a {
             color: var(--color-text-light);
             font-family: var(--font-display);
-            font-size: 24px; /* Ukuran font disesuaikan */
-            font-weight: 600; /* Font weight disesuaikan */
+            font-size: 20px; /* PERUBAHAN: Ukuran font dikurangi menjadi 20px */
+            font-weight: 600; 
             display: block;
             transition: color 0.3s ease;
         }
@@ -352,15 +355,12 @@
         }
            
         @media (max-width: 768px) {
-            /* PERBAIKAN: Menjaga logo dan menu tetap sejajar horizontal di mobile */
             .header .container {
-                /* Container header sudah flex, hanya perlu memastikan align-items center (yang sudah ada) */
                 align-items: center; 
-                flex-direction: row; /* Pastikan tidak menumpuk di 768px */
+                flex-direction: row; 
                 padding: 0 var(--spacing-md);
             }
             
-            /* Footer tetap menumpuk */
             .footer .container {
                 flex-direction: column;
                 align-items: flex-start;
@@ -368,11 +368,10 @@
             }
 
             .logo {
-                width: auto; /* Dibuat auto lagi agar tidak mengambil 100% dan tetap rata kiri */
+                width: auto; 
                 text-align: left;
             }
             
-            /* Penyesuaian font */
             .hero-title {
                 font-size: 34px; 
             }
@@ -398,7 +397,7 @@
                 font-size: 24px;
             }
             .mobile-nav-overlay ul {
-                width: 90%; /* Menu lebih lebar di layar sangat kecil */
+                width: 90%; 
             }
         }
     </style>
