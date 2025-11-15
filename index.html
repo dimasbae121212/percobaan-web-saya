@@ -152,7 +152,7 @@
             left: 0;
         }
 
-        /* Penempatan Awal Bilah-bilah Menu (DIPERBAIKI) */
+        /* Penempatan Awal Bilah-bilah Menu */
         .hamburger-menu .bar1 {
             top: 0;
         }
@@ -295,20 +295,25 @@
             text-align: center;
         }
 
-        /* Contact Section Specific */
+        /* Contact Section Specific - PERUBAHAN DI SINI */
+        .contact-section .container {
+            /* Pastikan konten utama di container (judul, deskripsi) rata kiri */
+            text-align: left; 
+        }
+
         .contact-list {
             list-style: none;
             padding: 0;
             margin-top: var(--spacing-md);
             max-width: 500px; 
-            margin-left: auto;
+            /* Menghilangkan centering untuk membuat rata kiri */
+            margin-left: 0; 
             margin-right: auto;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            /* Jarak horizontal lebih kecil */
             gap: var(--spacing-sm); 
             margin-bottom: var(--spacing-sm);
             font-size: 18px;
@@ -466,12 +471,16 @@
             /* Ukuran font Judul Section di mobile */
             .section-title {
                 font-size: 28px;
+                /* Mengubah text-align untuk kontak agar rata kiri (mobile) */
+                text-align: left;
             }
             .hero-title {
                 font-size: 28px; 
             }
             .hero-description, .card-description {
                 font-size: 16px;
+                /* Mengubah text-align untuk kontak agar rata kiri (mobile) */
+                text-align: left;
             }
             .card-title {
                 font-size: 22px;
@@ -490,6 +499,11 @@
             }
             .contact-label {
                 width: 90px; 
+            }
+            
+            /* Kontainer Harga dikembalikan ke rata tengah di mobile karena tombolnya di tengah */
+            .price-section .container {
+                text-align: center;
             }
 
             /* Penyesuaian Footer */
