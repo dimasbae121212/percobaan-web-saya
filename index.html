@@ -10,7 +10,6 @@
         /* 1. FONT UTENDO (Teks Normal) */
         @font-face {
             font-family: 'Utendo';
-            /* Jalur dan format Utendo */
             src: url('fonts/Utendo-Regular.ttf') format('truetype'); 
             font-weight: 400;
             font-style: normal;
@@ -57,7 +56,6 @@
             overflow-x: hidden; 
         }
 
-        /* PERUBAHAN UTAMA: MENGATUR FONT TEBAL KE INTER */
         strong, b, 
         .logo, .hero-title, .section-title, .card-title, .card-link {
             font-family: var(--font-display); 
@@ -75,7 +73,6 @@
             padding: 0 var(--spacing-md);
         }
 
-        /* Optimasi Gambar: memastikan gambar responsif */
         img {
             max-width: 100%;
             height: auto;
@@ -92,7 +89,6 @@
             position: relative; 
         }
         
-        /* Modifikasi Header Container untuk menu */
         .header .container {
             display: flex;
             justify-content: space-between;
@@ -135,8 +131,7 @@
             height: 25px;
             cursor: pointer;
             z-index: 1100; 
-            position: absolute;
-            right: var(--spacing-md); 
+            /* Hapus absolute position di sini, biarkan flexbox yang mengaturnya */
         }
 
         .hamburger-menu div {
@@ -147,28 +142,28 @@
             transition: all 0.3s ease;
         }
 
-        /* Animasi Hamburger Icon */
+        /* Animasi Hamburger Icon - DIPERBAIKI agar simetris */
         .hamburger-menu.open .bar1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
+            transform: rotate(-45deg) translate(-7px, 7px); /* Disesuaikan */
         }
         .hamburger-menu.open .bar2 {
             opacity: 0;
         }
         .hamburger-menu.open .bar3 {
-            transform: rotate(45deg) translate(-5px, -6px);
+            transform: rotate(45deg) translate(-7px, -7px); /* Disesuaikan */
         }
 
-        /* --- Overlay Navigasi Mobile --- */
+        /* --- Overlay Navigasi Mobile - DIPERBAIKI & DIPERPOLAS --- */
         .mobile-nav-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); 
+            background-color: rgba(0, 0, 0, 0.7); /* Background lebih transparan */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-end; /* Dorong menu ke kanan */
+            align-items: flex-start;
             z-index: 1050;
             visibility: hidden; 
             opacity: 0; 
@@ -180,31 +175,52 @@
             opacity: 1;
         }
 
+        /* Gaya Panel Menu itu sendiri */
         .mobile-nav-overlay ul {
             list-style: none;
-            text-align: center;
+            text-align: left;
+            padding: 100px var(--spacing-lg) var(--spacing-lg); /* Padding atas besar untuk menghindari logo */
+            background-color: var(--color-primary); /* Warna solid untuk panel menu */
+            width: 75%; /* Lebar menu di mobile */
+            height: 100%;
+            /* Animasi geser */
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav-overlay.open ul {
+            transform: translateX(0);
         }
 
         .mobile-nav-overlay ul li {
             margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Pemisah antar menu */
+            padding-bottom: 8px;
+        }
+        
+        /* Hapus pemisah pada item terakhir */
+        .mobile-nav-overlay ul li:last-child {
+            border-bottom: none;
         }
 
         .mobile-nav-overlay ul li a {
             color: var(--color-text-light);
             font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 24px; /* Ukuran font disesuaikan */
+            font-weight: 600; /* Font weight disesuaikan */
+            display: block;
             transition: color 0.3s ease;
         }
 
         .mobile-nav-overlay ul li a:hover {
-            color: var(--color-primary); 
+            color: var(--color-background); 
         }
         /* ------------------------------------ */
 
         /* =========================================================================
-           HERO / ABOUT SECTION (dan bagian lain)
+           ... Bagian CSS lainnya (tetap sama) ...
            ========================================================================= */
+
         .hero-section {
             padding: 80px 0;
         }
@@ -229,9 +245,6 @@
             max-width: 900px;
         }
 
-        /* =========================================================================
-           SERVICE CARDS SECTION
-           ========================================================================= */
         .service-cards-section {
             padding: 40px 0 80px 0;
             text-align: center;
@@ -245,11 +258,9 @@
 
         .card-grid {
             display: grid;
-            /* Grid sekarang akan mencoba menampilkan 4 kolom jika memungkinkan, dan otomatis menumpuk di mobile */
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: var(--spacing-lg);
         }
-        /* Catatan: Saya menyesuaikan minmax menjadi 250px agar 4 kolom masih bisa masuk di layar desktop yang lebih kecil */
 
         .card {
             background-color: var(--color-text-light);
@@ -299,10 +310,6 @@
             margin-top: auto;
         }
 
-        /* =========================================================================
-           FEATURE SECTION (Design Showcase)
-           ========================================================================= */
-
         .feature-section {
             padding: 80px 0;
         }
@@ -317,9 +324,6 @@
             background-color: #ccc;
         }
 
-        /* =========================================================================
-           FOOTER STYLES
-           ========================================================================= */
         .footer {
             background-color: var(--color-primary);
             color: var(--color-text-light);
@@ -348,15 +352,27 @@
         }
            
         @media (max-width: 768px) {
-            .header .container, .footer .container {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-                align-items: flex-start; 
+            /* PERBAIKAN: Menjaga logo dan menu tetap sejajar horizontal di mobile */
+            .header .container {
+                /* Container header sudah flex, hanya perlu memastikan align-items center (yang sudah ada) */
+                align-items: center; 
+                flex-direction: row; /* Pastikan tidak menumpuk di 768px */
+                padding: 0 var(--spacing-md);
             }
+            
+            /* Footer tetap menumpuk */
+            .footer .container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+
             .logo {
-                width: 100%; 
+                width: auto; /* Dibuat auto lagi agar tidak mengambil 100% dan tetap rata kiri */
                 text-align: left;
             }
+            
+            /* Penyesuaian font */
             .hero-title {
                 font-size: 34px; 
             }
@@ -381,8 +397,8 @@
             .section-title {
                 font-size: 24px;
             }
-            .mobile-nav-overlay ul li a {
-                font-size: 24px; 
+            .mobile-nav-overlay ul {
+                width: 90%; /* Menu lebih lebar di layar sangat kecil */
             }
         }
     </style>
