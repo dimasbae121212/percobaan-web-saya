@@ -461,8 +461,17 @@
 
         /* Contact Section Specific */
         .contact-section .container {
-            /* KONTAK: Selalu Rata Kiri (Untuk Judul dan Deskripsi) */
+            /* KONTAK: Selalu Rata Kiri (Untuk Judul dan Item List) */
             text-align: left; 
+        }
+        
+        /* Tambahkan perubahan pada deskripsi di dalam section kontak */
+        .contact-section .hero-description {
+            /* Menimpa properti margin auto dari global .hero-description */
+            margin-left: 0; 
+            margin-right: auto;
+            /* Memastikan perataan teks ke kiri */
+            text-align: left !important; 
         }
 
         /* =========================================================================
