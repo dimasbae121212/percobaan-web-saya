@@ -249,7 +249,9 @@
             overflow: hidden; 
 
             background-image: url('https://whiterabbit.nz/wp-content/uploads/2022/07/3d-house-renders-nz.jpg');
-            background-size: cover; 
+            
+            /* PENGATURAN BACKGROUND UNTUK FULL COVERAGE */
+            background-size: cover; /* **Memastikan gambar menutupi seluruh section** */
             background-position: center center; 
             background-repeat: no-repeat; 
         }
@@ -465,12 +467,10 @@
             text-align: left; 
         }
         
-        /* Tambahkan perubahan pada deskripsi di dalam section kontak */
+        /* Memastikan deskripsi di section kontak diratakan ke kiri */
         .contact-section .hero-description {
-            /* Menimpa properti margin auto dari global .hero-description */
             margin-left: 0; 
             margin-right: auto;
-            /* Memastikan perataan teks ke kiri */
             text-align: left !important; 
         }
 
