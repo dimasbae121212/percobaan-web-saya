@@ -416,12 +416,15 @@
             text-align: left; 
         }
 
+        /* =========================================================================
+           KONTAK (Lebih Kecil dan Padat)
+           ========================================================================= */
         .contact-list {
             list-style: none;
             padding: 0;
-            margin-top: var(--spacing-md);
-            max-width: 500px; 
-            /* RATA KIRI: margin-left: 0, margin-right: auto */
+            /* Mengurangi jarak atas */
+            margin-top: var(--spacing-sm); 
+            max-width: 450px; /* Sedikit diperkecil */
             margin-left: 0; 
             margin-right: auto;
         }
@@ -430,22 +433,24 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-sm); 
-            margin-bottom: var(--spacing-sm);
-            font-size: 18px;
+            /* Mengurangi jarak vertikal dan ukuran font */
+            margin-bottom: 4px; 
+            font-size: 16px; 
             font-family: var(--font-body);
         }
         
         .contact-item i {
-            width: 30px;
+            /* Mengurangi ukuran ikon */
+            width: 25px; 
             text-align: center;
-            font-size: 24px;
+            font-size: 20px; 
             color: var(--color-primary);
             flex-shrink: 0; 
         }
         
         .contact-label {
-            /* Perataan Titik Dua */
-            width: 110px; 
+            /* Mengurangi lebar untuk perataan */
+            width: 80px; 
             text-align: left;
             flex-shrink: 0; 
         }
@@ -456,7 +461,9 @@
             flex-grow: 1; 
             text-align: left;
         }
-        
+        /* ========================================================================= */
+
+
         /* Card Styles */
         .card-grid {
             /* Kartu harus tetap rata kiri dalam grid (auto-alignment) */
@@ -542,6 +549,39 @@
             justify-content: space-between;
             align-items: center;
         }
+        
+        /* =========================================================================
+           NEW: FLOATING WHATSAPP BUTTON (Fixed Bottom Right)
+           ========================================================================= */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            /* Menggunakan gaya tombol yang ada sebagai dasar */
+            background-color: #25d366; /* Warna WhatsApp Hijau */
+            color: var(--color-text-light);
+            padding: 10px 20px;
+            border-radius: 50px; /* Bentuk kapsul/oval */
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .floating-whatsapp i {
+            font-size: 22px; 
+        }
+
+        .floating-whatsapp:hover {
+            background-color: #128c7e;
+            transform: scale(1.05);
+        }
+
 
         /* =========================================================================
            MEDIA QUERIES (Responsiveness)
@@ -593,16 +633,17 @@
                  text-align: left; /* Pastikan konten dalam kartu tetap rata kiri */
             }
 
-            /* HARGA: Tetap Rata Tengah (Sudah diatur di .price-section .container) */
-            .price-section .container {
-                text-align: center;
+            /* KONTAK: Penyesuaian Mobile */
+            .contact-item {
+                font-size: 14px; /* Ukuran font item kontak lebih kecil di mobile */
+                gap: 5px; 
             }
-
-            /* KONTAK: Tetap Rata Kiri (Sudah diatur di .contact-section .container) */
-            .contact-section .container {
-                text-align: left;
+            .contact-item i {
+                font-size: 18px;
             }
-
+            .contact-label {
+                width: 70px; 
+            }
 
             /* Gaya Umum Mobile */
             body {
@@ -646,17 +687,6 @@
                 gap: var(--spacing-md);
             }
 
-            /* Kontak: Ukuran font item kontak lebih kecil di mobile */
-            .contact-item {
-                font-size: 16px;
-                gap: var(--spacing-sm); 
-            }
-            .contact-item i {
-                font-size: 20px;
-            }
-            .contact-label {
-                width: 90px; 
-            }
             .price-box {
                 padding: var(--spacing-md); 
             }
@@ -671,6 +701,18 @@
                 align-items: center; 
                 text-align: center;
                 gap: 8px; 
+            }
+            
+            /* Floating Button Mobile Size */
+            .floating-whatsapp {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 15px;
+                font-size: 14px;
+                gap: 6px;
+            }
+            .floating-whatsapp i {
+                font-size: 18px; 
             }
         }
         
@@ -919,6 +961,10 @@
             <p>&copy; 2025 Ryuu Desain. All rights reserved.</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/6281902851525" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chat Sekarang
+    </a>
 
     <script>
         // Script untuk toggle mobile menu
