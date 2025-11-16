@@ -294,7 +294,9 @@
             font-weight: 600;
             font-size: 18px;
             margin-top: var(--spacing-md);
+            margin: var(--spacing-md) 8px; /* Tambahkan margin agar tombol tidak menempel */
             transition: background-color 0.3s ease;
+            cursor: pointer;
         }
         .button:hover {
             background-color: #836752;
@@ -311,6 +313,42 @@
             /* HARGA: Selalu Rata Tengah */
             text-align: center;
         }
+        
+        /* Gaya untuk Daftar Harga Tersembunyi */
+        #price-details {
+            display: none; /* Sembunyikan secara default */
+            margin-top: var(--spacing-lg);
+            text-align: left; /* Rata kiri untuk detail paket */
+        }
+
+        .price-package {
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border: 1px solid #ddd;
+        }
+
+        .package-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            font-family: var(--font-display);
+        }
+        .package-price {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: var(--font-display);
+        }
+        .package-features {
+            font-size: 16px;
+            list-style: disc;
+            margin-left: 20px;
+            line-height: 1.5;
+        }
+        /* Akhir Gaya Daftar Harga */
 
         /* Contact Section Specific */
         .contact-section .container {
@@ -494,7 +532,11 @@
             .contact-section .container {
                 text-align: left;
             }
-
+            
+            /* Daftar harga di mobile tetap rata kiri di dalamnya */
+            #price-details {
+                text-align: left;
+            }
 
             /* Gaya Umum Mobile */
             body {
@@ -689,12 +731,57 @@
                 
                 <div class="price-box">
                     <p class="hero-description" style="text-align: center; margin-bottom: var(--spacing-md); font-size: 18px;">
-                        Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan, termasuk skema paket dan penawaran khusus, dengan menghubungi kami sekarang.
+                        Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan, termasuk skema paket dan penawaran khusus.
                     </p>
                     
                     <a href="https://wa.me/6281902851525" class="button" target="_blank">
                         <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Cek Harga via WhatsApp
                     </a>
+                    
+                    <button id="togglePriceButton" class="button" onclick="togglePrice()">
+                        <i class="fas fa-chevron-down" style="margin-right: 8px;"></i> Cek Disini
+                    </button>
+                    
+                    <div id="price-details">
+                        
+                        <div class="price-package">
+                            <div class="package-title">BASSIC</div>
+                            <div class="package-price">Rp12.000/m²</div>
+                            <ul class="package-features">
+                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="price-package">
+                            <div class="package-title">STANDAR</div>
+                            <div class="package-price">Rp25.000/m²</div>
+                            <ul class="package-features">
+                                <li>Gambar 3D</li>
+                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="price-package">
+                            <div class="package-title">PREMIUM</div>
+                            <div class="package-price">Rp35.000/m²</div>
+                            <ul class="package-features">
+                                <li>Gambar 3D</li>
+                                <li>RAB (Rencana Anggaran Biaya)</li>
+                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="price-package">
+                            <div class="package-title">SULTAN</div>
+                            <div class="package-price">Rp50.000/m²</div>
+                            <ul class="package-features">
+                                <li>Gambar 3D</li>
+                                <li>RAB (Rencana Anggaran Biaya)</li>
+                                <li>Gambar Desain Interior</li>
+                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -764,6 +851,22 @@
                 document.body.style.overflow = '';
             });
         });
+        
+        // SCRIPT BARU UNTUK TOGGLE HARGA
+        function togglePrice() {
+            const priceDetails = document.getElementById('price-details');
+            const toggleButton = document.getElementById('togglePriceButton');
+            
+            if (priceDetails.style.display === 'none' || priceDetails.style.display === '') {
+                // Tampilkan Harga
+                priceDetails.style.display = 'block';
+                toggleButton.innerHTML = '<i class="fas fa-chevron-up" style="margin-right: 8px;"></i> Sembunyikan Harga';
+            } else {
+                // Sembunyikan Harga
+                priceDetails.style.display = 'none';
+                toggleButton.innerHTML = '<i class="fas fa-chevron-down" style="margin-right: 8px;"></i> Cek Disini';
+            }
+        }
     </script>
 
 </body>
