@@ -7,10 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* 1. FONT UTENDO (Teks Normal) */
+        /* 1. FONT UTENDO (Teks Normal) - PERHATIAN: Pastikan file font ada di path ini! */
         @font-face {
             font-family: 'Utendo';
-            /* Jalur dan format Utendo */
             src: url('fonts/Utendo-Regular.ttf') format('truetype'); 
             font-weight: 400;
             font-style: normal;
@@ -35,9 +34,9 @@
             --color-text-light: #ffffff;
             --color-text-muted: rgba(0, 0, 0, 0.55);
 
-            /* Typography */
+            /* Typography: Inter sebagai fallback jika Utendo error */
             --font-display: 'Inter', sans-serif; 
-            --font-body: 'Utendo', sans-serif; 
+            --font-body: 'Utendo', 'Inter', sans-serif; 
             --spacing-lg: 32px;
             --spacing-md: 24px;
             --spacing-sm: 16px;
@@ -242,7 +241,8 @@
            ========================================================================= */
         .hero-section {
             padding-top: 120px; 
-            padding-bottom: 180px; /* Jarak bawah Hero Section (diperlebar) */
+            /* Mengembalikan padding besar agar area konten tetap luas */
+            padding-bottom: 180px; 
             text-align: left; 
             color: var(--color-text-light); 
             position: relative; 
@@ -250,9 +250,10 @@
 
             background-image: url('https://whiterabbit.nz/wp-content/uploads/2022/07/3d-house-renders-nz.jpg');
             
-            /* PENGATURAN BACKGROUND UNTUK FULL COVERAGE */
-            background-size: cover; /* **Memastikan gambar menutupi seluruh section** */
+            /* Mengembalikan ke cover (Full area, terpotong jika perlu) */
+            background-size: cover; 
             background-position: center center; 
+            
             background-repeat: no-repeat; 
         }
 
@@ -467,10 +468,12 @@
             text-align: left; 
         }
         
-        /* Memastikan deskripsi di section kontak diratakan ke kiri */
+        /* Tambahkan perubahan pada deskripsi di dalam section kontak */
         .contact-section .hero-description {
+            /* Menimpa properti margin auto dari global .hero-description */
             margin-left: 0; 
             margin-right: auto;
+            /* Memastikan perataan teks ke kiri */
             text-align: left !important; 
         }
 
@@ -729,6 +732,9 @@
             .hero-section {
                 padding-top: 80px; 
                 padding-bottom: 120px; /* Jarak bawah Hero Section di mobile */
+                /* KEMBALIKAN KE COVER UNTUK MOBILE */
+                background-size: cover; 
+                background-position: center center; 
             }
             .hero-section::before {
                 /* Gradien diatur dari atas ke bawah pada mobile */
