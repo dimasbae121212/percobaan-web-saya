@@ -294,13 +294,25 @@
             font-weight: 600;
             font-size: 18px;
             margin-top: var(--spacing-md);
-            margin: var(--spacing-md) 8px; /* Tambahkan margin agar tombol tidak menempel */
-            transition: background-color 0.3s ease;
+            margin: var(--spacing-sm) 8px; /* Jarak antar tombol */
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .button:hover {
             background-color: #836752;
         }
+        
+        /* Tombol Cek Harga memiliki gaya yang sedikit berbeda (outline) */
+        .button-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        .button-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+        }
+
 
         /* Price Section Specific */
         .price-box {
@@ -314,41 +326,43 @@
             text-align: center;
         }
         
-        /* Gaya untuk Daftar Harga Tersembunyi */
-        #price-details {
-            display: none; /* Sembunyikan secara default */
-            margin-top: var(--spacing-lg);
-            text-align: left; /* Rata kiri untuk detail paket */
+        /* Daftar Harga (Tersembunyi Awalnya) */
+        .price-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; /* Animasi buka/tutup */
+            padding: 0 10px;
+            text-align: left;
         }
-
-        .price-package {
-            background-color: #f7f7f7;
-            border-radius: 8px;
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-            border: 1px solid #ddd;
+        
+        .price-details.open {
+            max-height: 800px; /* Nilai besar agar konten bisa muncul */
+            padding: var(--spacing-md) 10px;
         }
-
-        .package-title {
-            font-size: 24px;
+        
+        .price-item {
+            border-bottom: 1px dashed var(--color-background);
+            padding: 10px 0;
+            margin-bottom: 5px;
+        }
+        .price-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .price-item h4 {
+            font-family: var(--font-display);
             font-weight: 800;
+            font-size: 20px;
             color: var(--color-primary);
             margin-bottom: 5px;
-            font-family: var(--font-display);
         }
-        .package-price {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-family: var(--font-display);
-        }
-        .package-features {
+        .price-item p {
             font-size: 16px;
-            list-style: disc;
-            margin-left: 20px;
-            line-height: 1.5;
+            color: var(--color-text-dark);
+            text-align: left;
+            margin-bottom: 5px;
         }
-        /* Akhir Gaya Daftar Harga */
+
 
         /* Contact Section Specific */
         .contact-section .container {
@@ -532,11 +546,7 @@
             .contact-section .container {
                 text-align: left;
             }
-            
-            /* Daftar harga di mobile tetap rata kiri di dalamnya */
-            #price-details {
-                text-align: left;
-            }
+
 
             /* Gaya Umum Mobile */
             body {
@@ -731,55 +741,33 @@
                 
                 <div class="price-box">
                     <p class="hero-description" style="text-align: center; margin-bottom: var(--spacing-md); font-size: 18px;">
-                        Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan, termasuk skema paket dan penawaran khusus.
+                        Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan, termasuk skema paket dan penawaran khusus, dengan menghubungi kami sekarang.
                     </p>
                     
                     <a href="https://wa.me/6281902851525" class="button" target="_blank">
                         <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Cek Harga via WhatsApp
                     </a>
                     
-                    <button id="togglePriceButton" class="button" onclick="togglePrice()">
-                        <i class="fas fa-chevron-down" style="margin-right: 8px;"></i> Cek Disini
+                    <button id="togglePriceButton" class="button button-secondary">
+                        Cek Disini
                     </button>
                     
-                    <div id="price-details">
-                        
-                        <div class="price-package">
-                            <div class="package-title">BASSIC</div>
-                            <div class="package-price">Rp12.000/m²</div>
-                            <ul class="package-features">
-                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
-                            </ul>
+                    <div id="priceDetails" class="price-details">
+                        <div class="price-item">
+                            <h4>1. BASSIC — Rp 12.000/m²</h4>
+                            <p>Didapatkan: Gambar kerja lengkap (Arsitektur, Struktur, dan MEP).</p>
                         </div>
-                        
-                        <div class="price-package">
-                            <div class="package-title">STANDAR</div>
-                            <div class="package-price">Rp25.000/m²</div>
-                            <ul class="package-features">
-                                <li>Gambar 3D</li>
-                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
-                            </ul>
+                        <div class="price-item">
+                            <h4>2. STANDAR — Rp 25.000/m²</h4>
+                            <p>Didapatkan: Gambar 3D, Gambar kerja lengkap (Arsitektur, Struktur, dan MEP).</p>
                         </div>
-                        
-                        <div class="price-package">
-                            <div class="package-title">PREMIUM</div>
-                            <div class="package-price">Rp35.000/m²</div>
-                            <ul class="package-features">
-                                <li>Gambar 3D</li>
-                                <li>RAB (Rencana Anggaran Biaya)</li>
-                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
-                            </ul>
+                        <div class="price-item">
+                            <h4>3. PREMIUM — Rp 35.000/m²</h4>
+                            <p>Didapatkan: Gambar 3D, RAB (Rencana Anggaran Biaya), Gambar kerja lengkap (Arsitektur, Struktur, dan MEP).</p>
                         </div>
-                        
-                        <div class="price-package">
-                            <div class="package-title">SULTAN</div>
-                            <div class="package-price">Rp50.000/m²</div>
-                            <ul class="package-features">
-                                <li>Gambar 3D</li>
-                                <li>RAB (Rencana Anggaran Biaya)</li>
-                                <li>Gambar Desain Interior</li>
-                                <li>Gambar Kerja Lengkap (Arsitektur, Struktur, MEP)</li>
-                            </ul>
+                        <div class="price-item">
+                            <h4>4. SULTAN — Rp 50.000/m²</h4>
+                            <p>Didapatkan: Gambar 3D, RAB (Rencana Anggaran Biaya), Gambar desain interior, Gambar kerja lengkap (Arsitektur, Struktur, dan MEP).</p>
                         </div>
                     </div>
                 </div>
@@ -831,6 +819,8 @@
         // Script untuk toggle mobile menu
         const hamburgerMenu = document.getElementById('hamburgerMenu');
         const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        const priceDetails = document.getElementById('priceDetails');
+        const togglePriceButton = document.getElementById('togglePriceButton');
 
         hamburgerMenu.addEventListener('click', () => {
             hamburgerMenu.classList.toggle('open');
@@ -851,22 +841,18 @@
                 document.body.style.overflow = '';
             });
         });
-        
-        // SCRIPT BARU UNTUK TOGGLE HARGA
-        function togglePrice() {
-            const priceDetails = document.getElementById('price-details');
-            const toggleButton = document.getElementById('togglePriceButton');
-            
-            if (priceDetails.style.display === 'none' || priceDetails.style.display === '') {
-                // Tampilkan Harga
-                priceDetails.style.display = 'block';
-                toggleButton.innerHTML = '<i class="fas fa-chevron-up" style="margin-right: 8px;"></i> Sembunyikan Harga';
+
+        // Script untuk toggle daftar harga
+        togglePriceButton.addEventListener('click', () => {
+            priceDetails.classList.toggle('open');
+            if (priceDetails.classList.contains('open')) {
+                togglePriceButton.textContent = 'Sembunyikan Harga';
+                togglePriceButton.classList.remove('button-secondary');
             } else {
-                // Sembunyikan Harga
-                priceDetails.style.display = 'none';
-                toggleButton.innerHTML = '<i class="fas fa-chevron-down" style="margin-right: 8px;"></i> Cek Disini';
+                togglePriceButton.textContent = 'Cek Disini';
+                togglePriceButton.classList.add('button-secondary');
             }
-        }
+        });
     </script>
 
 </body>
