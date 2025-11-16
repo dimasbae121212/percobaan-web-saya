@@ -312,7 +312,7 @@
             text-align: center;
         }
         
-        /* NEW: Price Display Styles */
+        /* Price Display Styles */
         .price-details-container {
             /* Container awal disembunyikan */
             max-height: 0; 
@@ -339,13 +339,34 @@
 
         .price-card {
             background-color: var(--color-text-light); /* Latar belakang putih */
-            border: 2px solid var(--color-primary); /* Border coklat tua sesuai tema */
+            border: 2px solid var(--color-primary); /* Border default */
             border-radius: 12px;
             padding: var(--spacing-md);
             text-align: left; /* Rata kiri untuk detail */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease, border-width 0.3s ease;
         }
+
+        /* NEW: WARNA BORDER SESUAI TIER HARGA */
+        .price-card.tier-bassic {
+            border-color: #6c757d; /* Abu-abu, netral */
+        }
+
+        .price-card.tier-standar {
+            border-color: #007bff; /* Biru */
+        }
+
+        .price-card.tier-premium {
+            border-color: var(--color-primary); /* Coklat/emas, fokus utama */
+            border-width: 3px; /* Lebih tebal sedikit */
+        }
+
+        .price-card.tier-sultan {
+            border-color: #ffc107; /* Kuning/emas, paling tinggi */
+            border-width: 3px;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4); /* Efek bayangan lebih menonjol */
+        }
+
 
         .price-card:hover {
             transform: translateY(-3px);
@@ -545,6 +566,11 @@
            
         @media (max-width: 768px) {
             /* MOBILE STYLES */
+            
+            /* FIX: MENGATASI TEXT TERPOTONG PADA SULTAN TIER */
+            .package-list li {
+                font-size: 14px; /* Mengurangi ukuran font agar muat */
+            }
 
             /* Mengembalikan Desain Kami (Feature Section) ke Rata Kiri di Mobile */
             .feature-section {
@@ -799,7 +825,7 @@
                     </p>
                     <div class="price-card-grid">
 
-                        <div class="price-card">
+                        <div class="price-card tier-bassic">
                             <h4 class="card-title-price">BASSIC</h4>
                             <p class="card-price-value">12.000/m<sup>2</sup></p>
                             <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Paket Gambar Kerja</p>
@@ -811,7 +837,7 @@
                             </ul>
                         </div>
 
-                        <div class="price-card">
+                        <div class="price-card tier-standar">
                             <h4 class="card-title-price">STANDAR</h4>
                             <p class="card-price-value">25.000/m<sup>2</sup></p>
                             <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Gambar 3D + Gambar Kerja</p>
@@ -824,7 +850,7 @@
                             </ul>
                         </div>
 
-                        <div class="price-card" style="border-color: #000;">
+                        <div class="price-card tier-premium">
                             <h4 class="card-title-price">PREMIUM</h4>
                             <p class="card-price-value">35.000/m<sup>2</sup></p>
                             <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Lengkap dengan Anggaran Biaya</p>
@@ -836,7 +862,7 @@
                             </ul>
                         </div>
                         
-                        <div class="price-card">
+                        <div class="price-card tier-sultan">
                             <h4 class="card-title-price">SULTAN</h4>
                             <p class="card-price-value">50.000/m<sup>2</sup></p>
                             <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Desain Penuh (Eksterior & Interior)</p>
