@@ -236,18 +236,53 @@
         .section-padding {
              padding: 80px 0;
         }
+        
+        /* =========================================================================
+           PERBAIKAN HERO SECTION (Background Image dengan Gradien)
+           ========================================================================= */
         .hero-section {
-            padding-top: 80px;
-            padding-bottom: 80px; 
+            padding-top: 120px; 
+            padding-bottom: 120px; 
             text-align: left; 
-            
-            /* Latar belakang dengan gambar dan gradien transparan */
-            background: 
-                linear-gradient(to right, rgba(234, 231, 221, 0.7) 0%, rgba(234, 231, 221, 0.3) 50%, rgba(234, 231, 221, 0) 100%), /* Gradien transparan dari kiri */
-                url('https://whiterabbit.nz/wp-content/uploads/2021/08/house-render-hero-1.jpg') no-repeat center center; /* Gambar latar belakang */
+            color: var(--color-text-light); 
+            position: relative; 
+            overflow: hidden; 
+
+            background-image: url('https://whiterabbit.nz/wp-content/uploads/2022/07/3d-house-renders-nz.jpg');
             background-size: cover; 
-            color: var(--color-text-dark); 
+            background-position: center center; 
+            background-repeat: no-repeat; 
         }
+
+        /* Overlay Gradien Transparan */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gradien dari hitam transparan ke transparan penuh */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.0) 100%);
+            z-index: 1; /* Di atas gambar, di bawah teks */
+        }
+
+        /* Memastikan teks tetap di atas overlay */
+        .hero-section .container {
+            position: relative;
+            z-index: 2; 
+        }
+
+        /* Menyesuaikan warna teks eyebrow di hero section agar kontras dengan background */
+        .hero-section .eyebrow {
+            color: rgba(255, 255, 255, 0.7); /* Putih transparan */
+        }
+        .hero-section .hero-description {
+             color: var(--color-text-light); /* Pastikan deskripsi juga putih */
+        }
+        /* ========================================================================= */
+
+
         .feature-section {
             padding-top: 0; 
             /* DESKTOP: Desain Kami Rata Tengah */
@@ -668,28 +703,13 @@
                 font-size: 22px; 
             }
             .hero-section {
-                padding-top: 40px; 
-                padding-bottom: 40px; 
-                /* Sesuaikan gradien agar lebih cocok di mobile jika perlu */
-                background: 
-                    linear-gradient(to right, rgba(234, 231, 221, 0.8) 0%, rgba(234, 231, 221, 0.5) 50%, rgba(234, 231, 221, 0) 100%), 
-                    url('https://whiterabbit.nz/wp-content/uploads/2021/08/house-render-hero-1.jpg') no-repeat center center;
-                background-size: cover;
+                padding-top: 80px; /* Penyesuaian mobile untuk hero section */
+                padding-bottom: 80px; 
             }
-            .feature-section {
-                padding-top: 0; 
-                padding-bottom: 40px;
-            }
-            .service-cards-section {
-                padding-top: 40px; 
-                padding-bottom: 40px;
-            }
-            
-             .section-padding {
-                padding: 40px 0;
-            }
-            .section-title {
-                font-size: 28px;
+            .hero-section::before {
+                /* Gradien bisa disesuaikan untuk mobile jika perlu, 
+                   misalnya dari bawah ke atas atau tetap dari kiri ke kanan */
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.0) 100%);
             }
             .hero-title {
                 font-size: 28px; 
@@ -771,31 +791,3 @@
 
             <div class="hamburger-menu" id="hamburgerMenu">
                 <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
-
-        <div class="mobile-nav-overlay" id="mobileNavOverlay">
-            <ul>
-                <li><a href="#beranda">Beranda</a></li>
-                <li><a href="#desain">Desain Kami</a></li>
-                <li><a href="#layanan">Layanan Kami</a></li>
-                <li><a href="#harga">Harga</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero-section" id="beranda">
-            <div class="container">
-                <p class="eyebrow">TENTANG KAMI</p>
-                <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
-                <p class="hero-description" style="margin: 0 0 0 0;">
-                    Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah komitmen kuat terhadap detail, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
-                </p>
-            </div>
-        </section>
-
-        <section class="feature-section" id
