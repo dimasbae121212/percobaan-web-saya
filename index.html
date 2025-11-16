@@ -551,30 +551,35 @@
         }
         
         /* =========================================================================
-           NEW: FLOATING WHATSAPP BUTTON (Fixed Bottom Right)
+           FLOATING WHATSAPP BUTTON (Fixed Bottom Right) - SIMETRI PERBAIKAN
            ========================================================================= */
         .floating-whatsapp {
             position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 1000;
-            /* Menggunakan gaya tombol yang ada sebagai dasar */
-            background-color: #25d366; /* Warna WhatsApp Hijau */
+            background-color: #25d366; 
             color: var(--color-text-light);
             padding: 10px 20px;
-            border-radius: 50px; /* Bentuk kapsul/oval */
+            border-radius: 50px; 
             font-weight: 600;
             font-size: 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            
+            /* PENTING UNTUK SIMETRI: Menjamin ikon dan teks rata tengah vertikal */
             display: flex;
-            align-items: center;
+            align-items: center; 
             gap: 8px;
+            
             transition: background-color 0.3s ease, transform 0.3s ease;
             text-transform: uppercase;
         }
 
         .floating-whatsapp i {
             font-size: 22px; 
+            /* Memastikan tidak ada margin/padding yang mengganggu simetri */
+            margin: 0; 
+            line-height: 1; /* Penting untuk menghilangkan celah di bawah ikon */
         }
 
         .floating-whatsapp:hover {
@@ -723,9 +728,13 @@
             .mobile-nav-overlay ul {
                 width: 90%; 
             }
-            /* Menyesuaikan tombol agar tidak terlalu lebar di layar kecil */
-            .price-box a.button {
-                 margin-left: 0 !important; 
+            /* Tombol Harga Mobile: Rata tengah dan dipisah jika terlalu lebar */
+            .price-box a.button, .price-box button.button {
+                 margin-left: auto !important;
+                 margin-right: auto !important;
+                 display: block; /* Memaksa ke baris baru */
+                 width: 100%;
+                 max-width: 300px;
                  margin-top: 10px;
             }
         }
@@ -852,13 +861,13 @@
                         Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan, termasuk skema paket dan penawaran khusus, dengan menekan tombol di bawah.
                     </p>
                     
-                    <button id="togglePriceButton" class="button" style="border: none; cursor: pointer;">
+                    <a href="https://wa.me/6281902851525" class="button" target="_blank" style="margin-right: 10px; margin-left: 0;">
+                        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Konsultasi Sekarang Gratis
+                    </a>
+                    
+                    <button id="togglePriceButton" class="button" style="border: none; cursor: pointer; margin-left: 0; margin-right: 0; margin-top: 10px;">
                         Cek Disini
                     </button>
-                    
-                    <a href="https://wa.me/6281902851525" class="button" target="_blank" style="margin-left: 10px;">
-                        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Cek Harga via WhatsApp
-                    </a>
                 </div>
                 
                 <div id="priceDetails" class="price-details-container">
