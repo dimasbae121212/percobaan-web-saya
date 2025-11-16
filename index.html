@@ -566,9 +566,11 @@
             font-size: 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
             
-            /* PENTING UNTUK SIMETRI: Menjamin ikon dan teks rata tengah vertikal */
+            /* PENTING UNTUK SIMETRI VERTIKAL: Menjamin ikon dan teks rata tengah vertikal */
             display: flex;
             align-items: center; 
+            
+            /* Jarak antara ikon dan teks (Simetri Horizontal) */
             gap: 8px;
             
             transition: background-color 0.3s ease, transform 0.3s ease;
@@ -577,9 +579,8 @@
 
         .floating-whatsapp i {
             font-size: 22px; 
-            /* Memastikan tidak ada margin/padding yang mengganggu simetri */
             margin: 0; 
-            line-height: 1; /* Penting untuk menghilangkan celah di bawah ikon */
+            line-height: 1; /* Penting: Memastikan ikon tidak menyisakan ruang kosong di bawah */
         }
 
         .floating-whatsapp:hover {
