@@ -238,7 +238,7 @@
         }
         
         /* =========================================================================
-           PERBAIKAN HERO SECTION (Background Image dengan Gradien)
+           HERO SECTION (Background Image dengan Gradien) - Sudah Dikoreksi
            ========================================================================= */
         .hero-section {
             padding-top: 120px; 
@@ -306,6 +306,8 @@
             margin-bottom: var(--spacing-lg);
             font-weight: 800; /* Cetak tebal */
             font-family: var(--font-display);
+            /* Memastikan judul section di luar hero berwarna hitam */
+            color: var(--color-text-dark);
         }
         
         .hero-title {
@@ -317,7 +319,8 @@
 
         .hero-description {
             font-size: 18px;
-            color: var(--color-text-dark);
+            /* Warna default untuk deskripsi di luar hero section */
+            color: var(--color-text-dark); 
             /* Deskripsi di Beranda tetap justify */
             text-align: justify;
             max-width: 900px;
@@ -592,7 +595,7 @@
         }
         
         /* =========================================================================
-           FLOATING WHATSAPP BUTTON (Fixed Bottom Right) - SIMETRI PERBAIKAN
+           FLOATING WHATSAPP BUTTON (Fixed Bottom Right) - SIMETRI
            ========================================================================= */
         .floating-whatsapp {
             position: fixed;
@@ -707,8 +710,7 @@
                 padding-bottom: 80px; 
             }
             .hero-section::before {
-                /* Gradien bisa disesuaikan untuk mobile jika perlu, 
-                   misalnya dari bawah ke atas atau tetap dari kiri ke kanan */
+                /* Gradien diatur dari atas ke bawah pada mobile */
                 background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.0) 100%);
             }
             .hero-title {
@@ -791,3 +793,260 @@
 
             <div class="hamburger-menu" id="hamburgerMenu">
                 <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="mobile-nav-overlay" id="mobileNavOverlay">
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#desain">Desain Kami</a></li>
+                <li><a href="#layanan">Layanan Kami</a></li>
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section" id="beranda">
+            <div class="container">
+                <p class="eyebrow">TENTANG KAMI</p>
+                <h1 class="hero-title">Jasa Desain Bangunan Gedung</h1>
+                <p class="hero-description" style="margin: 0 0 0 0;">
+                    Ryuu Desain adalah penyedia jasa desain bangunan yang berlokasi di Tegal, Jawa Tengah. Perusahaan ini berfokus pada layanan desain bangunan gedung, menawarkan solusi desain komprehensif baik dalam format 2D maupun 3D. Inti dari layanan Ryuu Desain adalah komitmen kuat terhadap detail, standar, dan kualitas. Hal ini memastikan bahwa setiap proyek desain yang dihasilkan tidak hanya estetis secara visual (3D), tetapi juga fungsional, akurat secara teknis (2D), dan dapat dipertanggungjawabkan dalam pelaksanaan konstruksi.
+                </p>
+            </div>
+        </section>
+
+        <section class="feature-section" id="desain">
+            <div class="container">
+                <h2 class="section-title">Desain Kami</h2>
+                <p class="hero-description">
+                    Lihatlah beberapa karya terbaik kami yang menunjukkan detail, standar, dan kualitas yang kami tawarkan.
+                </p>
+                <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Portofolio Desain Bangunan" class="feature-image">
+            </div>
+        </section>
+
+        <section class="service-cards-section section-padding" id="layanan">
+            <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                 <p class="hero-description">
+                    Kami menawarkan empat jenis layanan utama untuk memenuhi kebutuhan desain bangunan Anda.
+                </p>
+                <div class="card-grid">
+
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Desain 3D" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Desain 3D</h3>
+                            <p class="card-description">
+                                Visualisasi 3D fotorealistis yang menangkap setiap tekstur, pencahayaan, dan detail estetika bangunan.
+                            </p>
+                            <a href="desain-3d.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Gambar Kerja 2D" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Gambar Kerja 2D</h3>
+                            <p class="card-description">
+                                Fokus pada kejelasan dimensi, notasi, dan spesifikasi material untuk meminimalkan rework konstruksi.
+                            </p>
+                            <a href="gambar-2d.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="RAB" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Rencana Anggaran Biaya (RAB)</h3>
+                            <p class="card-description">
+                                Perhitungan RAB yang transparan dan rinci, mencakup biaya material, upah kerja, dan biaya tidak terduga.
+                            </p>
+                            <a href="rab-detail.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="https://i0.wp.com/indodesigncenter.com/wp-content/uploads/2024/02/indodesigncenter-contoh-gambar-kerja-interior-1a.jpg?ssl=1" alt="Desain Interior" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Desain Interior</h3>
+                            <p class="card-description">
+                                Perencanaan ruang dan pemilihan material interior yang harmonis, fungsional, dan sesuai dengan karakter pribadi Anda.
+                            </p>
+                            <a href="desain-interior.html" class="card-link">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <section class="price-section section-padding" id="harga" style="text-align: center;">
+            <div class="container">
+                <h2 class="section-title">Harga</h2>
+                
+                <div class="price-box">
+                    <p class="hero-description" style="text-align: center; margin-bottom: var(--spacing-md); font-size: 18px;">
+                        Dapatkan rincian harga lengkap untuk setiap layanan desain yang kami tawarkan, termasuk skema paket dan penawaran khusus, dengan menekan tombol di bawah.
+                    </p>
+                    
+                    <a href="https://wa.me/6281902851525" class="button" target="_blank" style="margin-right: 10px; margin-left: 0;">
+                        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Konsultasi Sekarang Gratis
+                    </a>
+                    
+                    <button id="togglePriceButton" class="button" style="border: none; cursor: pointer; margin-left: 0; margin-right: 0; margin-top: 10px;">
+                        Cek Disini
+                    </button>
+                </div>
+                
+                <div id="priceDetails" class="price-details-container">
+                    <p class="hero-description" style="text-align: center; margin-bottom: var(--spacing-lg); font-size: 18px;">
+                        Pilih paket desain yang paling sesuai dengan kebutuhan dan anggaran proyek Anda.
+                    </p>
+                    <div class="price-card-grid">
+
+                        <div class="price-card tier-bassic">
+                            <h4 class="card-title-price">BASSIC</h4>
+                            <p class="card-price-value">12.000/m<sup>2</sup></p>
+                            <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Paket Gambar Kerja</p>
+                            <ul class="package-list">
+                                <li><i class="fas fa-check-circle"></i> Gambar Kerja Lengkap</li>
+                                <li style="margin-left: 30px;">- Arsitektur</li>
+                                <li style="margin-left: 30px;">- Struktur</li>
+                                <li style="margin-left: 30px;">- MEP (Mekanikal, Elektrikal, Plumbing)</li>
+                            </ul>
+                        </div>
+
+                        <div class="price-card tier-standar">
+                            <h4 class="card-title-price">STANDAR</h4>
+                            <p class="card-price-value">25.000/m<sup>2</sup></p>
+                            <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Gambar 3D + Gambar Kerja</p>
+                            <ul class="package-list">
+                                <li><i class="fas fa-check-circle"></i> Gambar 3D Visualisasi</li>
+                                <li><i class="fas fa-check-circle"></i> Gambar Kerja Lengkap</li>
+                                <li style="margin-left: 30px;">- Arsitektur</li>
+                                <li style="margin-left: 30px;">- Struktur</li>
+                                <li style="margin-left: 30px;">- MEP</li>
+                            </ul>
+                        </div>
+
+                        <div class="price-card tier-premium">
+                            <h4 class="card-title-price">PREMIUM</h4>
+                            <p class="card-price-value">35.000/m<sup>2</sup></p>
+                            <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Lengkap dengan Anggaran Biaya</p>
+                            <ul class="package-list">
+                                <li><i class="fas fa-check-circle"></i> Gambar 3D Visualisasi</li>
+                                <li><i class="fas fa-check-circle"></i> RAB (Rencana Anggaran Biaya)</li>
+                                <li><i class="fas fa-check-circle"></i> Gambar Kerja Lengkap</li>
+                                <li style="margin-left: 30px;">- Arsitektur, Struktur, MEP</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="price-card tier-sultan">
+                            <h4 class="card-title-price">SULTAN</h4>
+                            <p class="card-price-value">50.000/m<sup>2</sup></p>
+                            <p style="font-size: 14px; color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">Desain Penuh (Eksterior & Interior)</p>
+                            <ul class="package-list">
+                                <li><i class="fas fa-check-circle"></i> Gambar 3D Visualisasi</li>
+                                <li><i class="fas fa-check-circle"></i> RAB (Rencana Anggaran Biaya)</li>
+                                <li><i class="fas fa-check-circle"></i> Gambar Desain Interior</li>
+                                <li><i class="fas fa-check-circle"></i> Gambar Kerja Lengkap</li>
+                                <li style="margin-left: 30px;">- Arsitektur, Struktur, MEP</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section class="contact-section section-padding" id="kontak">
+            <div class="container">
+                <h2 class="section-title">Kontak</h2>
+                <p class="hero-description" style="margin-bottom: var(--spacing-lg);">
+                    Hubungi kami melalui media sosial dan saluran komunikasi di bawah ini.
+                </p>
+                
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="contact-label">WhatsApp:</span>
+                        <span class="contact-name">081902851525</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <span class="contact-label">Instagram:</span>
+                        <span class="contact-name"><a href="https://www.instagram.com/ryuuhah/" target="_blank">Ryuuhah</a></span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="contact-label">Facebook:</span>
+                        <span class="contact-name"><a href="https://web.facebook.com/Ryuuhaaa?locale=id_ID" target="_blank">Ryuu</a></span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-label">Email:</span>
+                        <span class="contact-name">ryuuhah.1112@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryuu Desain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6281902851525" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chat Sekarang
+    </a>
+
+    <script>
+        // Script untuk toggle mobile menu
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+        hamburgerMenu.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+            mobileNavOverlay.classList.toggle('open');
+            // Mencegah scrolling body saat menu mobile terbuka
+            if (mobileNavOverlay.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Menutup menu saat mengklik tautan di overlay
+        mobileNavOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerMenu.classList.remove('open');
+                mobileNavOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Script baru untuk toggle tampilan harga
+        const toggleButton = document.getElementById('togglePriceButton');
+        const priceDetails = document.getElementById('priceDetails');
+
+        toggleButton.addEventListener('click', () => {
+            priceDetails.classList.toggle('open');
+            if (priceDetails.classList.contains('open')) {
+                toggleButton.textContent = 'Sembunyikan Harga';
+            } else {
+                toggleButton.textContent = 'Cek Disini';
+            }
+        });
+    </script>
+
+</body>
+</html>
